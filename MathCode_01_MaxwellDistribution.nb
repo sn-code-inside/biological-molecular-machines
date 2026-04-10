@@ -1,0 +1,1382 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     60812,       1374]
+NotebookOptionsPosition[     57914,       1310]
+NotebookOutlinePosition[     58491,       1332]
+CellTagsIndexPosition[     58417,       1327]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Velocity distribution in an ideal gas", "Title",
+ CellChangeTimes->{{3.772875560774867*^9, 3.77287557110997*^9}, {
+  3.848118192437899*^9, 3.848118195278083*^9}, {3.851485712228334*^9, 
+  3.851485718051798*^9}, {3.85176035242701*^9, 3.851760363371484*^9}, {
+  3.9706279789240303`*^9, 
+  3.970627988008004*^9}},ExpressionUUID->"72ef5a31-f896-4184-b876-\
+55274188a54b"],
+
+Cell[CellGroupData[{
+
+Cell["G. Woehlke, Jan. 2022-2026", "Subsubsection",
+ CellChangeTimes->{{3.7728756025833883`*^9, 3.772875610534574*^9}, {
+  3.84811820523032*^9, 3.848118216110503*^9}, {3.851485786676751*^9, 
+  3.8514858016373873`*^9}, {3.851760416661448*^9, 3.851760418243847*^9}, {
+  3.9705595840591097`*^9, 3.970559585099833*^9}, {3.9834296128426533`*^9, 
+  3.983429613528734*^9}},ExpressionUUID->"ae7319f8-3e83-40fe-a24d-\
+d6f201b2b868"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Button", "[", 
+  RowBox[{"\"\<Go to section \
+\!\(\*StyleBox[\"Distance\",FontWeight->\"Bold\",FontSlant->\"Italic\"]\)\!\(\
+\*StyleBox[\" \",FontWeight->\"Bold\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\
+\"calculator\",FontWeight->\"Bold\",FontSlant->\"Italic\"]\)\>\"", ",", 
+   RowBox[{"NotebookLocate", "[", 
+    RowBox[{"{", 
+     RowBox[{"\"\<MathCode_01_MaxwellDistribution.nb\>\"", 
+      ",", "\"\<calculator\>\""}], "}"}], "]"}], ",", 
+   RowBox[{"Background", "->", "LightYellow"}]}], "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.9847105026689463`*^9, 3.984710548412307*^9}, {
+  3.984710637248375*^9, 3.9847106492449102`*^9}, {3.984710766798436*^9, 
+  3.9847107681661*^9}, {3.984710821167789*^9, 3.984710834991691*^9}, {
+  3.984711188289097*^9, 3.984711189828599*^9}},
+ CellLabel->
+  "In[250]:=",ExpressionUUID->"dae198e7-5812-4338-ba0f-f6f7537d82a7"],
+
+Cell[BoxData[
+ ButtonBox["\<\"Go to section \\!\\(\\*StyleBox[\\\"Distance\\\",FontWeight->\
+\\\"Bold\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\" \
+\\\",FontWeight->\\\"Bold\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\
+\\\"calculator\\\",FontWeight->\\\"Bold\\\",FontSlant->\\\"Italic\\\"]\\)\"\>",
+  Appearance->Automatic,
+  Background->RGBColor[1, 1, 0.85],
+  ButtonFunction:>
+   NotebookLocate[{"MathCode_01_MaxwellDistribution.nb", "calculator"}],
+  Evaluator->Automatic,
+  Method->"Preemptive"]], "Output",
+ CellChangeTimes->{{3.984710533349177*^9, 3.9847105494218693`*^9}, {
+   3.9847106449500113`*^9, 3.984710652316492*^9}, 3.984710769423052*^9, {
+   3.984710828758218*^9, 3.984710848252275*^9}, 3.9847111535970182`*^9, 
+   3.984711190695269*^9},
+ CellLabel->
+  "Out[250]=",ExpressionUUID->"e105aff5-3e40-4e00-bd4d-a9fecb257d34"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "1. Maxwell velocity distribution in ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["H", "2"], TraditionalForm]],ExpressionUUID->
+  "42879afe-f257-4071-b0e9-689af16f41f6"],
+ ", He, ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["N", "2"], TraditionalForm]],ExpressionUUID->
+  "edae51ff-1e97-4da2-8a56-67000d38237b"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["O", "2"], TraditionalForm]],ExpressionUUID->
+  "20f9c87d-4610-4129-beb2-5b148cda63a2"],
+ ", and ",
+ StyleBox["Ar",
+  FontSlant->"Italic"],
+ " under ideal conditions"
+}], "Section",
+ CellChangeTimes->{{3.772875577373657*^9, 3.772875596734243*^9}, {
+   3.8481176608665943`*^9, 3.8481176661686163`*^9}, {3.8514857238061333`*^9, 
+   3.851485783396737*^9}, {3.8517603686349697`*^9, 3.8517604126781197`*^9}, {
+   3.970560045211849*^9, 3.9705600746982727`*^9}, {3.970627994086536*^9, 
+   3.970628007047735*^9}, 3.983434598936058*^9, {3.983506240532899*^9, 
+   3.9835062412264*^9}},ExpressionUUID->"38a6fa79-be14-4eb0-8e4a-\
+520b8a00a2c2"],
+
+Cell[TextData[{
+ "We pull a list of elements from ",
+ StyleBox["Wolfram",
+  FontSlant->"Italic"],
+ ":"
+}], "Text",
+ CellChangeTimes->{{3.768117634142901*^9, 3.768117652566938*^9}, {
+  3.768117684744864*^9, 3.768117713329013*^9}, {3.848120734170041*^9, 
+  3.848120765693286*^9}, {3.851485857366276*^9, 3.851485913456195*^9}, {
+  3.851760457933024*^9, 3.851760478190913*^9}, {3.97055959986981*^9, 
+  3.970559619420518*^9}, {3.983506263056158*^9, 3.983506264292078*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"b63ea2b3-3782-4641-b44e-240dd852b851"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\"\<Molecule\>\"", ",", "\"\<Molecular Mass\>\""}], "}"}], ",", 
+    
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ChemicalData", "[", "\"\<Hydrogen\>\"", "]"}], ",", 
+      RowBox[{"ChemicalData", "[", 
+       RowBox[{"\"\<Hydrogen\>\"", ",", "\"\<MolecularMass\>\""}], "]"}]}], 
+     "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ChemicalData", "[", "\"\<Helium\>\"", "]"}], ",", 
+      RowBox[{"ChemicalData", "[", 
+       RowBox[{"\"\<Helium\>\"", ",", "\"\<MolecularMass\>\""}], "]"}]}], 
+     "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ChemicalData", "[", "\"\<Nitrogen\>\"", "]"}], ",", 
+      RowBox[{"ChemicalData", "[", 
+       RowBox[{"\"\<Nitrogen\>\"", ",", "\"\<MolecularMass\>\""}], "]"}]}], 
+     "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ChemicalData", "[", "\"\<Oxygen\>\"", "]"}], ",", 
+      RowBox[{"ChemicalData", "[", 
+       RowBox[{"\"\<Oxygen\>\"", ",", "\"\<MolecularMass\>\""}], "]"}]}], 
+     "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ChemicalData", "[", "\"\<Argon\>\"", "]"}], ",", 
+      RowBox[{"ChemicalData", "[", 
+       RowBox[{"\"\<Argon\>\"", ",", "\"\<MolecularMass\>\""}], "]"}]}], 
+     "}"}]}], "}"}], "//", "TableForm"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.851759977969577*^9, 3.85176004431312*^9}, {
+  3.8517601112692327`*^9, 3.851760210111052*^9}, {3.970559628725672*^9, 
+  3.970559637053432*^9}, {3.9706280337170067`*^9, 3.970628043568322*^9}},
+ CellLabel->
+  "In[206]:=",ExpressionUUID->"afef2d2b-c42b-4ff6-8c78-8b22502dd670"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Molecule\"\>", "\<\"Molecular Mass\"\>"},
+    {
+     GraphicsBox[{
+       {RGBColor[
+        0.43333333333333335`, 0.4666666666666667, 0.4666666666666667], 
+        AbsoluteThickness[0.55], InsetBox[
+         StyleBox["\<\"H\"\>",
+          StripOnInput->False,
+          ScriptSizeMultipliers->0.8,
+          ScriptMinSize->8,
+          FontSize->Scaled[0.2830188679245283],
+          FontWeight->Plain], {200., 0.}], 
+        LineBox[{{220., 0.}, {250., 0.}}], 
+        {RGBColor[
+         0.43333333333333335`, 0.4666666666666667, 0.4666666666666667], 
+         InsetBox[
+          StyleBox["\<\"H\"\>",
+           StripOnInput->False,
+           ScriptSizeMultipliers->0.8,
+           ScriptMinSize->8,
+           FontSize->Scaled[0.2830188679245283],
+           FontWeight->Plain], {300., 0.}], 
+         LineBox[{{250., 0.}, {280., 0.}}]}}, {}, {}},
+      ImageSize->{{0., 42.4}, {0., 18.106761565836294`}},
+      PlotRange->{{177.5, 318.}, {-30., 30.}}], 
+     TemplateBox[{
+      "2.016`4.", "\"u\"", "unified atomic mass units", "\"AtomicMassUnit\""},
+      
+      "Quantity"]},
+    {
+     GraphicsBox[{{}, {}, 
+       {RGBColor[
+        0.3718724444444445, 0.44444444444444453`, 0.44444444444444453`], 
+        InsetBox[
+         StyleBox["\<\"He\"\>",
+          StripOnInput->False,
+          FontSize->Scaled[0.29940119760479045`]], {200., 0.}]}},
+      ImageSize->33.400000000000006`,
+      PlotRange->{{149.9, 250.1}, {-30., 30.}}], 
+     TemplateBox[{
+      "4.002602`7.", "\"u\"", "unified atomic mass units", 
+       "\"AtomicMassUnit\""},
+      "Quantity"]},
+    {
+     GraphicsBox[{
+       {RGBColor[0.291989, 0.437977, 0.888609], AbsoluteThickness[0.55], 
+        InsetBox[
+         StyleBox["\<\"N\"\>",
+          StripOnInput->False,
+          ScriptSizeMultipliers->0.8,
+          ScriptMinSize->8,
+          FontSize->Scaled[0.2830188679245283],
+          FontWeight->Plain], {200., 0.}], 
+        LineBox[{{{220., 7.000000000000001}, {250., 7.000000000000001}}, {{
+         220., -7.000000000000001}, {250., -7.000000000000001}}, {{220., 
+         0.}, {250., 0.}}}], 
+        {RGBColor[0.291989, 0.437977, 0.888609], InsetBox[
+          StyleBox["\<\"N\"\>",
+           StripOnInput->False,
+           ScriptSizeMultipliers->0.8,
+           ScriptMinSize->8,
+           FontSize->Scaled[0.2830188679245283],
+           FontWeight->Plain], {300., 0.}], 
+         LineBox[{{{250., 7.000000000000001}, {280., 7.000000000000001}}, {{
+          250., -7.000000000000001}, {280., -7.000000000000001}}, {{250., 
+          0.}, {280., 0.}}}]}}, {}, {}},
+      ImageSize->{{0., 42.4}, {0., 18.106761565836294`}},
+      PlotRange->{{177.5, 318.}, {-30., 30.}}], 
+     TemplateBox[{
+      "28.014`5.", "\"u\"", "unified atomic mass units", "\"AtomicMassUnit\""},
+      "Quantity"]},
+    {
+     GraphicsBox[{
+       {RGBColor[0.800498, 0.201504, 0.192061], AbsoluteThickness[0.55], 
+        InsetBox[
+         StyleBox["\<\"O\"\>",
+          StripOnInput->False,
+          ScriptSizeMultipliers->0.8,
+          ScriptMinSize->8,
+          FontSize->Scaled[0.2830188679245283],
+          FontWeight->Plain], {200., 0.}], 
+        LineBox[{{{221.65, 5.}, {250., 5.}}, {{221.65, -5.}, {250., -5.}}}], 
+        {RGBColor[0.800498, 0.201504, 0.192061], InsetBox[
+          StyleBox["\<\"O\"\>",
+           StripOnInput->False,
+           ScriptSizeMultipliers->0.8,
+           ScriptMinSize->8,
+           FontSize->Scaled[0.2830188679245283],
+           FontWeight->Plain], {300., 0.}], 
+         LineBox[{{{250., 5.}, {278.35, 5.}}, {{250., -5.}, {
+          278.35, -5.}}}]}}, {}, {}},
+      ImageSize->{{0., 42.400000000000006`}, {0., 17.550274223034737`}},
+      PlotRange->{{175.025, 319.98}, {-30., 30.}}], 
+     TemplateBox[{
+      "31.998`5.", "\"u\"", "unified atomic mass units", "\"AtomicMassUnit\""},
+      "Quantity"]},
+    {
+     GraphicsBox[{{}, {}, 
+       {RGBColor[0.364092, 0.5628293333333334, 0.594728], InsetBox[
+         StyleBox["\<\"Ar\"\>",
+          StripOnInput->False,
+          FontSize->Scaled[0.3472222222222223]], {200., 0.}]}},
+      ImageSize->28.79999999999999,
+      PlotRange->{{156.8, 243.2}, {-30., 30.}}], 
+     TemplateBox[{
+      "39.948`5.", "\"u\"", "unified atomic mass units", "\"AtomicMassUnit\""},
+      "Quantity"]}
+   },
+   GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.851760036058299*^9, 3.8517600451469173`*^9}, {
+   3.851760113247558*^9, 3.8517601677438993`*^9}, 3.851760211755134*^9, 
+   3.851762310488329*^9, {3.970559643699876*^9, 3.970559643816525*^9}, 
+   3.970628044649685*^9, {3.973825408299062*^9, 3.973825408423243*^9}, {
+   3.9834179841533403`*^9, 3.9834179844676237`*^9}, 3.983434673645261*^9, {
+   3.9835836626598454`*^9, 3.983583662892885*^9}, {3.9847066000447483`*^9, 
+   3.984706600362795*^9}, 3.984710475832262*^9},
+ CellLabel->
+  "Out[206]//TableForm=",ExpressionUUID->"c7e6ecc8-7579-4929-9422-\
+6825edc76fec"]
+}, Open  ]],
+
+Cell[TextData[{
+ "We plot the velocity distribution. Comments to the code: The function ",
+ StyleBox["MaxwellDistribution[\[Sigma]v]", "Input"],
+ " is defined such that the energy is scaled in relation to ",
+ StyleBox["\[Sigma]v", "Input"],
+ ", and equals ",
+ Cell[BoxData[
+  FormBox[
+   SqrtBox[
+    FractionBox[
+     RowBox[{"2", " ", 
+      SubscriptBox["k", "B"], "T"}], "m"]], TraditionalForm]],ExpressionUUID->
+  "11e97a43-c91b-47b3-9076-56bdea1e3320"],
+ ". This parameter defines the distribution \[ScriptCapitalD]. Note that the \
+maximum of the distribution is ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["v", "TI"], 
+          RowBox[{
+            StyleBox["W", "TI"], ",", 
+            StyleBox["m", "TI"], 
+            StyleBox["a", "TI"], 
+            StyleBox["x", "TI"]}]], "\[LongEqual]", 
+         SqrtBox[
+          FractionBox[
+           RowBox[{"2", 
+             SubscriptBox[
+              StyleBox["k", "TI"], 
+              StyleBox["B", "TI"]], 
+             StyleBox["T", "TI"]}], 
+           StyleBox["m", "TI"]]]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "v_{W,max}=\\sqrt{\\frac{2k_B T}{m}}", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "8bf1f12b-88f9-4416-82eb-d804e9e5d4d9"],
+ " (the ",
+ StyleBox["most likely",
+  FontWeight->"Bold"],
+ " velocity), whereas the ",
+ StyleBox["mean",
+  FontWeight->"Bold"],
+ " velocity (where half of the particles are slower, half are faster) is ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["v", "TI"], 
+          RowBox[{
+            StyleBox["m", "TI"], 
+            StyleBox["e", "TI"], 
+            StyleBox["a", "TI"], 
+            StyleBox["n", "TI"]}]], "\[LongEqual]", 
+         SqrtBox[
+          FractionBox[
+           RowBox[{"8", 
+             SubscriptBox[
+              StyleBox["k", "TI"], 
+              StyleBox["B", "TI"]], 
+             StyleBox["T", "TI"]}], 
+           RowBox[{"\[Pi]", 
+             StyleBox["m", "TI"]}]]]}], TraditionalForm], "errors" -> {}, 
+     "input" -> "v_{mean}=\\sqrt{\\frac{8 k_B T}{\\pi m}}", "state" -> 
+     "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "e8859fa7-572a-4537-ad97-17dc53b62a04"],
+ ".\nThe function ",
+ StyleBox["PDF[\[NonBreakingSpace]]", "Input"],
+ " stands for \[OpenCurlyDoubleQuote]point density function\
+\[CloseCurlyDoubleQuote], i.e. the frequency of events that the velocity on \
+the x\[NonBreakingSpace]axis. Other elements of the code are used for styling \
+and formatting."
+}], "Text",
+ CellChangeTimes->{{3.768117634142901*^9, 3.768117652566938*^9}, {
+  3.768117684744864*^9, 3.768117713329013*^9}, {3.848120734170041*^9, 
+  3.848120765693286*^9}, {3.851485857366276*^9, 3.851485913456195*^9}, {
+  3.851760507383925*^9, 3.851760554837002*^9}, {3.851760675549889*^9, 
+  3.8517607257712793`*^9}, {3.8517609350016937`*^9, 3.851761176544628*^9}, {
+  3.970559648380055*^9, 3.9705599662238817`*^9}, {3.9835065430165167`*^9, 
+  3.983506695568233*^9}, {3.983506726654571*^9, 3.983506749290959*^9}, {
+  3.983506783144796*^9, 3.9835067840768547`*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"c34cf5d8-223c-4047-87c5-f812a9dcbe19"],
+
+Cell[TextData[{
+ "Reference: ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " documentation of ",
+ StyleBox["MaxwellDistribution[\[NonBreakingSpace]]", "Code"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.851760262088299*^9, 3.85176030542524*^9}, {
+  3.9705599890415688`*^9, 3.9705600024810343`*^9}, {3.983506863453267*^9, 
+  3.983506864940181*^9}},
+ Background->RGBColor[
+  0.67, 0.54, 0.42, 
+   0.33],ExpressionUUID->"65f75b33-47d8-4881-b75f-1ba2aa9c2676"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[Sigma]v", "=", 
+     RowBox[{
+      RowBox[{"Block", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"k", "=", 
+           RowBox[{"Quantity", "[", "\"\<BoltzmannConstant\>\"", "]"}]}], ",", 
+          RowBox[{"t", "=", 
+           RowBox[{"Quantity", "[", 
+            RowBox[{"T", ",", "\"\<Kelvins\>\""}], "]"}]}]}], "}"}], ",", 
+        SqrtBox[
+         RowBox[{"k", " ", 
+          RowBox[{"t", "/", "m"}]}]]}], "]"}], "//", "UnitConvert"}]}], ";", 
+    RowBox[{"\[ScriptCapitalD]", "=", 
+     RowBox[{"MaxwellDistribution", "[", 
+      FormBox["\[Sigma]v",
+       TraditionalForm], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"PDF", "[", 
+        RowBox[{"\[ScriptCapitalD]", ",", 
+         RowBox[{"Quantity", "[", 
+          RowBox[{"v", ",", 
+           RowBox[{"\"\<Meters\>\"", "/", "\"\<Seconds\>\""}]}], "]"}]}], 
+        "]"}], "//", "Evaluate"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v", ",", "0", ",", "6500"}], "}"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"Full", ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "Full"}], "}"}]}], "}"}]}], ",", 
+      RowBox[{"Filling", "\[Rule]", "filling"}], ",", 
+      RowBox[{"AxesLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<m/s\>\"", ",", "\"\<densisty function\>\""}], "}"}]}], ",", 
+      RowBox[{"PlotLabel", "->", "\"\<Velocity distribution\>\""}], ",", 
+      RowBox[{"PlotStyle", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"color", ",", 
+         RowBox[{"Thickness", "[", "thn", "]"}]}], "}"}]}], ",", 
+      RowBox[{"LabelStyle", "\[Rule]", "fs"}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", "is"}], ",", 
+      RowBox[{"Epilog", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"QuantityMagnitude", "[", 
+             RowBox[{"UnitConvert", "[", 
+              RowBox[{"Mean", "[", "\[ScriptCapitalD]", "]"}], "]"}], "]"}], ",",
+             "0"}], "}"}], "]"}], ",", 
+         RowBox[{"Inset", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"StringJoin", "[", 
+              RowBox[{"\"\<Temperature \>\"", ",", 
+               RowBox[{"ToString", "[", "T", "]"}], ",", "\"\< K = \>\"", ",", 
+               RowBox[{"ToString", "[", 
+                RowBox[{"T", "-", "273."}], "]"}], ",", "\"\< \[Degree]C\>\"",
+                ",", "\"\<\\rMean velocity \>\"", ",", 
+               RowBox[{"ToString", "[", 
+                RowBox[{
+                 RowBox[{"Mean", "[", "\[ScriptCapitalD]", "]"}], "//", 
+                 "UnitConvert"}], "]"}]}], "]"}], ",", "fs", ",", 
+             RowBox[{"TextAlignment", "\[Rule]", "Left"}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"5000", ",", "Center"}], "}"}]}], "]"}]}], "}"}]}]}], 
+     "]"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"color", ",", 
+     RowBox[{"{", 
+      RowBox[{"Blue", ",", 
+       RowBox[{"RGBColor", "[", 
+        RowBox[{"0.5", ",", "0.5", ",", "0.85"}], "]"}], ",", "Black", ",", 
+       RowBox[{"Darker", "[", "Gray", "]"}], ",", "Orange", ",", "Red", ",", 
+       RowBox[{"Darker", "[", "Green", "]"}]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"filling", ",", "Axis"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"None", ",", "Axis"}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"fs", ",", "21", ",", "\"\<Font size\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"14", ",", "18", ",", "21", ",", "24", ",", "28"}], "}"}]}], 
+    "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"thn", ",", "0.005", ",", "\"\<Line thickness\>\""}], "}"}], ",",
+      "0.001", ",", "0.025"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"is", ",", "720", ",", "\"\<Image size\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "450", ",", "650", ",", "720", ",", "950", ",", "1050", ",", "1280"}], 
+      "}"}]}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"T", ",", "293.", ",", "\"\<Temperature/K\>\""}], "}"}], ",", 
+     "150", ",", "1200", ",", 
+     RowBox[{"Appearance", "->", "\"\<Open\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"m", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"ChemicalData", "[", 
+         RowBox[{
+          TemplateBox[{"\"hydrogen\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Element\"", ",", "\"Hydrogen\""}], "]"}], 
+            "\"Entity[\\\"Element\\\", \\\"Hydrogen\\\"]\"", "\"element\""},
+           "Entity"], ",", "\"\<MolecularMass\>\""}], "]"}], 
+        "->", "\"\<\!\(\*SubscriptBox[\(H\), \(2\)]\)\>\""}], ",", 
+       RowBox[{
+        RowBox[{"ChemicalData", "[", 
+         RowBox[{
+          TemplateBox[{"\"helium\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Element\"", ",", "\"Helium\""}], "]"}], 
+            "\"Entity[\\\"Element\\\", \\\"Helium\\\"]\"", "\"element\""},
+           "Entity"], ",", "\"\<MolecularMass\>\""}], "]"}], 
+        "->", "\"\<He\>\""}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"ChemicalData", "[", 
+         RowBox[{
+          TemplateBox[{"\"nitrogen\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Element\"", ",", "\"Nitrogen\""}], "]"}], 
+            "\"Entity[\\\"Element\\\", \\\"Nitrogen\\\"]\"", "\"element\""},
+           "Entity"], ",", "\"\<MolecularMass\>\""}], "]"}], 
+        "->", "\"\<\!\(\*SubscriptBox[\(N\), \(2\)]\)\>\""}], ",", 
+       RowBox[{
+        RowBox[{"ChemicalData", "[", 
+         RowBox[{
+          TemplateBox[{"\"oxygen\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Element\"", ",", "\"Oxygen\""}], "]"}], 
+            "\"Entity[\\\"Element\\\", \\\"Oxygen\\\"]\"", "\"element\""},
+           "Entity"], ",", "\"\<MolecularMass\>\""}], "]"}], 
+        "->", "\"\<\!\(\*SubscriptBox[\(O\), \(2\)]\)\>\""}], ",", 
+       RowBox[{
+        RowBox[{"ChemicalData", "[", 
+         RowBox[{
+          TemplateBox[{"\"argon\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Element\"", ",", "\"Argon\""}], "]"}], 
+            "\"Entity[\\\"Element\\\", \\\"Argon\\\"]\"", "\"element\""},
+           "Entity"], ",", "\"\<MolecularMass\>\""}], "]"}], 
+        "->", "\"\<Ar\>\""}]}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "PopupMenu"}]}], "}"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.8517571774080276`*^9, 3.851757247242423*^9}, {
+   3.8517572784013023`*^9, 3.85175730908879*^9}, {3.851757364251165*^9, 
+   3.851757382462929*^9}, 3.85175741595395*^9, {3.851757462692466*^9, 
+   3.8517575927806587`*^9}, {3.851757807906417*^9, 3.851757825682476*^9}, {
+   3.8517578812867727`*^9, 3.851757900079179*^9}, {3.851757980055941*^9, 
+   3.851757988884639*^9}, {3.851758042503552*^9, 3.851758062004754*^9}, {
+   3.85175809276569*^9, 3.851758103435502*^9}, {3.8517581353644857`*^9, 
+   3.851758172559696*^9}, {3.851758205039277*^9, 3.851758282191235*^9}, {
+   3.851758428098495*^9, 3.8517584329042797`*^9}, {3.8517584744061947`*^9, 
+   3.851758503070334*^9}, 3.851758550947365*^9, {3.851758587816997*^9, 
+   3.851758605589596*^9}, {3.851758639882278*^9, 3.851758661897415*^9}, {
+   3.8517587062221603`*^9, 3.8517587113341007`*^9}, {3.851758953343404*^9, 
+   3.8517589802629766`*^9}, {3.851759061329854*^9, 3.851759178691571*^9}, {
+   3.851759218126521*^9, 3.8517593651050587`*^9}, {3.85175940314651*^9, 
+   3.851759418670122*^9}, {3.8517594523832417`*^9, 3.851759522727207*^9}, {
+   3.851759611219075*^9, 3.851759682327649*^9}, {3.851761199648469*^9, 
+   3.851761269984705*^9}, {3.8517613245084743`*^9, 3.851761577340867*^9}, {
+   3.851761673168211*^9, 3.851761708636898*^9}, {3.851761747105641*^9, 
+   3.851761758976582*^9}, {3.851761831475666*^9, 3.851761842983848*^9}, {
+   3.851761885478713*^9, 3.851761888469878*^9}, {3.8517619481275253`*^9, 
+   3.851761950653892*^9}, {3.851761985008173*^9, 3.851761985511896*^9}, {
+   3.851762064875243*^9, 3.851762070186901*^9}, {3.851762114978416*^9, 
+   3.8517622136841393`*^9}, {3.970560114043545*^9, 3.970560242492392*^9}, {
+   3.97056617887239*^9, 3.970566203336816*^9}, {3.9706275587353153`*^9, 
+   3.970627584059887*^9}, {3.9706276159213037`*^9, 3.9706276510395317`*^9}, {
+   3.970627794479323*^9, 3.970627861593542*^9}, {3.970627897619296*^9, 
+   3.97062790513658*^9}, {3.973825496156816*^9, 3.973825533216325*^9}, {
+   3.973825609825238*^9, 3.973825611216517*^9}, {3.973825652935861*^9, 
+   3.973825690827066*^9}, {3.973825896001657*^9, 3.973825924436227*^9}, {
+   3.9738259851310062`*^9, 3.9738259907825317`*^9}, {3.973826053234578*^9, 
+   3.9738261455063667`*^9}, {3.973826210392866*^9, 3.973826210740432*^9}, {
+   3.973826260923665*^9, 3.973826315704728*^9}, {3.9738265055222683`*^9, 
+   3.973826505619944*^9}, {3.973826571237872*^9, 3.973826578275661*^9}, {
+   3.973826620007123*^9, 3.973826644906728*^9}, {3.973826697460964*^9, 
+   3.97382670107163*^9}, {3.973826960224859*^9, 3.973827024263187*^9}, 
+   3.9738270586359663`*^9, {3.9738271549092083`*^9, 3.973827188826949*^9}, {
+   3.9738281389310093`*^9, 3.973828199324367*^9}, {3.984706627303453*^9, 
+   3.984706644976404*^9}, {3.984706696816662*^9, 3.984706706304769*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"9203b1ca-41f2-48e8-9a91-60c6ef65df24"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`color$$ = RGBColor[
+    0, 0, 1], $CellContext`filling$$ = Axis, $CellContext`fs$$ = 
+    21, $CellContext`is$$ = 720, $CellContext`m$$ = Quantity[
+    2.016`4., "AtomicMassUnit"], $CellContext`T$$ = 293., $CellContext`thn$$ =
+     0.005, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`color$$], {
+       RGBColor[0, 0, 1], 
+       RGBColor[0.5, 0.5, 0.85], 
+       GrayLevel[0], 
+       RGBColor[
+       0.33333333333333337`, 0.33333333333333337`, 0.33333333333333337`], 
+       RGBColor[1, 0.5, 0], 
+       RGBColor[1, 0, 0], 
+       RGBColor[0, 
+        Rational[2, 3], 0]}, ControlType -> PopupMenu}, {{
+       Hold[$CellContext`filling$$], Axis}, {None, Axis}, ControlType -> 
+      SetterBar}, {{
+       Hold[$CellContext`fs$$], 21, "Font size"}, {14, 18, 21, 24, 28}, 
+      ControlType -> SetterBar}, {{
+       Hold[$CellContext`thn$$], 0.005, "Line thickness"}, 0.001, 0.025, 
+      ControlType -> Manipulator}, {{
+       Hold[$CellContext`is$$], 720, "Image size"}, {450, 650, 720, 950, 1050,
+       1280}, ControlType -> PopupMenu}, {{
+       Hold[$CellContext`T$$], 293., "Temperature/K"}, 150, 1200, ControlType -> 
+      Manipulator}, {
+      Hold[$CellContext`m$$], {
+      Quantity[2.016`4., "AtomicMassUnit"] -> 
+       "\!\(\*SubscriptBox[\(H\), \(2\)]\)", 
+       Quantity[4.002602`7., "AtomicMassUnit"] -> "He", 
+       Quantity[28.014`5., "AtomicMassUnit"] -> 
+       "\!\(\*SubscriptBox[\(N\), \(2\)]\)", 
+       Quantity[31.998`5., "AtomicMassUnit"] -> 
+       "\!\(\*SubscriptBox[\(O\), \(2\)]\)", 
+       Quantity[39.948`5., "AtomicMassUnit"] -> "Ar"}, ControlType -> 
+      PopupMenu}}, Typeset`size$$ = {
+    720., {218.88548519753394`, 224.61741879128394`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`color$$ = 
+        RGBColor[0, 0, 1], $CellContext`filling$$ = Axis, $CellContext`fs$$ = 
+        21, $CellContext`is$$ = 720, $CellContext`m$$ = 
+        Quantity[2.016`4., "AtomicMassUnit"], $CellContext`T$$ = 
+        293., $CellContext`thn$$ = 0.005}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, 
+      "Body" :> ($CellContext`\[Sigma]v = UnitConvert[
+          
+          Block[{$CellContext`k = 
+            Quantity["BoltzmannConstant"], $CellContext`t = 
+            Quantity[$CellContext`T$$, "Kelvins"]}, 
+           
+           Sqrt[$CellContext`k ($CellContext`t/$CellContext`m$$)]]]; \
+$CellContext`\[ScriptCapitalD] = MaxwellDistribution[$CellContext`\[Sigma]v]; 
+       Plot[
+         Evaluate[
+          PDF[$CellContext`\[ScriptCapitalD], 
+           Quantity[$CellContext`v, "Meters"/"Seconds"]]], {$CellContext`v, 0,
+           6500}, PlotRange -> {Full, {0, Full}}, 
+         Filling -> $CellContext`filling$$, 
+         AxesLabel -> {"m/s", "densisty function"}, PlotLabel -> 
+         "Velocity distribution", PlotStyle -> {$CellContext`color$$, 
+           Thickness[$CellContext`thn$$]}, LabelStyle -> $CellContext`fs$$, 
+         ImageSize -> $CellContext`is$$, Epilog -> {
+           PointSize[0.02], 
+           Point[{
+             QuantityMagnitude[
+              UnitConvert[
+               Mean[$CellContext`\[ScriptCapitalD]]]], 0}], 
+           Inset[
+            
+            Style[((((("Temperature " <> ToString[$CellContext`T$$]) <> 
+                 " K = ") <> ToString[$CellContext`T$$ - 273.]) <> 
+               " \[Degree]C") <> "\nMean velocity ") <> ToString[
+               UnitConvert[
+                Mean[$CellContext`\[ScriptCapitalD]]]], $CellContext`fs$$, 
+             TextAlignment -> Left], {5000, Center}]}]), 
+      "Specifications" :> {{$CellContext`color$$, {
+          RGBColor[0, 0, 1], 
+          RGBColor[0.5, 0.5, 0.85], 
+          GrayLevel[0], 
+          RGBColor[
+          0.33333333333333337`, 0.33333333333333337`, 0.33333333333333337`], 
+          RGBColor[1, 0.5, 0], 
+          RGBColor[1, 0, 0], 
+          RGBColor[0, 
+           Rational[2, 3], 0]}}, {{$CellContext`filling$$, Axis}, {
+         None, Axis}}, {{$CellContext`fs$$, 21, "Font size"}, {14, 18, 21, 24,
+          28}}, {{$CellContext`thn$$, 0.005, "Line thickness"}, 0.001, 
+         0.025}, {{$CellContext`is$$, 720, "Image size"}, {450, 650, 720, 950,
+          1050, 1280}}, {{$CellContext`T$$, 293., "Temperature/K"}, 150, 1200,
+          Appearance -> "Open"}, {$CellContext`m$$, {
+         Quantity[2.016`4., "AtomicMassUnit"] -> 
+          "\!\(\*SubscriptBox[\(H\), \(2\)]\)", 
+          Quantity[4.002602`7., "AtomicMassUnit"] -> "He", 
+          Quantity[28.014`5., "AtomicMassUnit"] -> 
+          "\!\(\*SubscriptBox[\(N\), \(2\)]\)", 
+          Quantity[31.998`5., "AtomicMassUnit"] -> 
+          "\!\(\*SubscriptBox[\(O\), \(2\)]\)", 
+          Quantity[39.948`5., "AtomicMassUnit"] -> "Ar"}, ControlType -> 
+         PopupMenu}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{769.0999999999999, {369.882795378198, 375.614728971948}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.9738259135423737`*^9, {3.973825986128468*^9, 3.9738259913999434`*^9}, {
+   3.9738261086065197`*^9, 3.973826146233652*^9}, {3.973826262099738*^9, 
+   3.973826316601351*^9}, {3.9738265068285427`*^9, 3.9738265261508617`*^9}, 
+   3.9738265792331133`*^9, {3.973826624042816*^9, 3.973826645651166*^9}, {
+   3.9738267018000526`*^9, 3.973826711204056*^9}, 3.9738270250077267`*^9, 
+   3.97382705971307*^9, {3.9738271618768682`*^9, 3.973827191410239*^9}, 
+   3.973827298177704*^9, {3.973828158550449*^9, 3.973828199891852*^9}, 
+   3.973835649176209*^9, 3.983417989532754*^9, 3.983583665657187*^9, {
+   3.9847066021970654`*^9, 3.984706646046919*^9}, 3.984706707410543*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"ef83525a-53bb-46f7-8366-b2a9ad28b76b"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2. Molar volume, mean particle distance, and internal energy", "Section",
+ CellChangeTimes->{{3.772875577373657*^9, 3.772875596734243*^9}, {
+  3.8481176608665943`*^9, 3.8481176661686163`*^9}, {3.8514857238061333`*^9, 
+  3.851485783396737*^9}, {3.8517603686349697`*^9, 3.8517604126781197`*^9}, {
+  3.970560045211849*^9, 3.9705600746982727`*^9}, {3.970627994086536*^9, 
+  3.970628007047735*^9}, {3.983434618345196*^9, 3.983434667062417*^9}, {
+  3.983506334701309*^9, 
+  3.983506335236417*^9}},ExpressionUUID->"9d58d821-9b72-4d62-a2c8-\
+172a6e6a9ce7"],
+
+Cell[BoxData[
+ RowBox[{"CellPrint", "[", 
+  RowBox[{"TextCell", "[", 
+   RowBox[{"\"\<Simple calculator\>\"", ",", 
+    RowBox[{"CellTags", "\[Rule]", "\"\<calculator\>\""}], 
+    ",", "\"\<Subsection\>\""}], "]"}], "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.98470972977287*^9, 3.9847097389730597`*^9}, {
+  3.984709993546811*^9, 3.9847100396364326`*^9}, {3.984710142466959*^9, 
+  3.984710198980298*^9}, {3.98471023812495*^9, 3.984710324100412*^9}, {
+  3.9847104599260073`*^9, 3.984710473499852*^9}},
+ CellLabel->
+  "In[207]:=",ExpressionUUID->"3e0c7172-4e13-42de-9b6b-dbd780c5f24f"],
+
+Cell[CellGroupData[{
+
+Cell["Simple calculator", "Subsection",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.984710475879668*^9},
+ CellTags->
+  "calculator",ExpressionUUID->"d5afc14d-e374-486f-82b0-599ee34e7c16"],
+
+Cell[TextData[{
+ "Together with the theory of ideal gases, we can estimate the ",
+ StyleBox["volume",
+  FontWeight->"Bold"],
+ " of a certain amount of gas (in moles) at given temperature and pressure. \
+We can further calculate \[LeftAngleBracket]\[CapitalDelta]s\
+\[RightAngleBracket], the ",
+ StyleBox["mean distance of gas atoms",
+  FontWeight->"Bold"],
+ " (or molecules; ",
+ Cell[BoxData[
+  RadicalBox[
+   FractionBox[
+    RowBox[{
+     SubscriptBox["n", "A"], " ", "N"}], "V"], "3"]],
+  CellChangeTimes->{{3.9834303566732817`*^9, 3.9834303749965897`*^9}, {
+    3.983430496338282*^9, 3.9834308942382317`*^9}, {3.9834309839544992`*^9, 
+    3.983431036877061*^9}, {3.983431139379609*^9, 3.9834312796142063`*^9}, {
+    3.983431321612207*^9, 3.9834313234905863`*^9}, {3.983431368701641*^9, 
+    3.983431393971246*^9}, {3.983431431226968*^9, 3.983431458030445*^9}, {
+    3.983431529029942*^9, 3.983431592625347*^9}, {3.9834316860031977`*^9, 
+    3.983431818458605*^9}, {3.9834319066763077`*^9, 3.983431912690735*^9}, {
+    3.983432057900951*^9, 3.983432167627204*^9}, {3.98343220515867*^9, 
+    3.983432251018091*^9}, {3.9834324679838057`*^9, 3.98343246928296*^9}, {
+    3.98343250294631*^9, 3.983432595385111*^9}, {3.983432644727695*^9, 
+    3.983432673417198*^9}, {3.9834327316551857`*^9, 3.9834327622063427`*^9}, {
+    3.983432857358471*^9, 3.9834329542017736`*^9}, {3.983432989547483*^9, 
+    3.983433102285261*^9}, {3.983433147410276*^9, 3.983433258698534*^9}, {
+    3.98343334836132*^9, 3.983433457065433*^9}, {3.983433503236779*^9, 
+    3.98343357587844*^9}, {3.983433675878785*^9, 3.9834337157386847`*^9}, {
+    3.983434042744545*^9, 3.9834341046021976`*^9}, {3.9834341658869667`*^9, 
+    3.9834341672935257`*^9}, {3.983434226412818*^9, 3.983434245936204*^9}, {
+    3.9834342828105173`*^9, 3.983434287414501*^9}, {3.983434379767614*^9, 
+    3.983434397520932*^9}, {3.983434435882019*^9, 3.983434448471921*^9}, 
+    3.9834347450364847`*^9, {3.983434776548164*^9, 3.9834347786617117`*^9}, 
+    3.983434891317466*^9, {3.9834349278503428`*^9, 3.983434940603528*^9}, {
+    3.983434977760289*^9, 3.983435002337035*^9}, {3.983435041297367*^9, 
+    3.983435041704187*^9}, {3.9834350767857313`*^9, 3.9834350858361673`*^9}, {
+    3.983435189833726*^9, 3.983435209456102*^9}, {3.9834352532569113`*^9, 
+    3.983435254437488*^9}, {3.983496632135742*^9, 3.983496674268303*^9}},
+  ExpressionUUID->"358d9bf8-3b1e-4397-895f-9101df32c4fd"],
+ "), and the ",
+ StyleBox["kinetic energy",
+  FontWeight->"Bold"],
+ " of the atoms/molecules ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(", 
+    RowBox[{
+     FractionBox["3", "2"], " ", 
+     SubscriptBox["k", "B"]}]}], TraditionalForm]],ExpressionUUID->
+  "334e033b-7edb-4179-b3e5-d355e32d11c0"],
+ "T for three degrees of freedom).\nThe ",
+ StyleBox["collision frequency",
+  FontWeight->"Bold"],
+ " may be calculated from mean velocity and mean distance ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(", 
+    FractionBox[
+     RowBox[{"\[LeftAngleBracket]", "v", "\[RightAngleBracket]"}], 
+     RowBox[{
+     "\[LeftAngleBracket]", "\[CapitalDelta]s", "\[RightAngleBracket]"}]]}], 
+   TraditionalForm]],ExpressionUUID->"68f1a913-4805-418f-b40a-9aa8f469fc2b"],
+ " = ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox["1", "\[CapitalDelta]t"], TraditionalForm]],ExpressionUUID->
+  "f337201a-b262-4d17-953d-dba4e27de870"],
+ "). \nOne may intuitively suspect that two particles that fly towards each \
+other encounter at ",
+ StyleBox["half",
+  FontWeight->"Bold"],
+ " the mean distance. However, the flight direction with respect to the \
+connecting line between their positions is random. Both particles may move in \
+the same direction (albeit with different velocities) such that the actual \
+travelling distance \[CapitalDelta]d until the encounter will be much larger \
+than the mean \[LeftAngleBracket]\[CapitalDelta]s\[RightAngleBracket]. The \
+directional component towards each other will be compensated by the component \
+away from each other."
+}], "Text",
+ CellChangeTimes->{{3.768117634142901*^9, 3.768117652566938*^9}, {
+   3.768117684744864*^9, 3.768117713329013*^9}, {3.848120734170041*^9, 
+   3.848120765693286*^9}, {3.851485857366276*^9, 3.851485913456195*^9}, {
+   3.851760507383925*^9, 3.851760554837002*^9}, {3.851760675549889*^9, 
+   3.8517607257712793`*^9}, {3.8517609350016937`*^9, 3.851761176544628*^9}, {
+   3.970559648380055*^9, 3.9705599662238817`*^9}, {3.9834345198236647`*^9, 
+   3.983434555223154*^9}, {3.983506348123685*^9, 3.983506448695959*^9}, {
+   3.983506500312868*^9, 3.9835065189646378`*^9}, {3.9835069169747133`*^9, 
+   3.983506986446821*^9}, 3.983507019357951*^9, {3.9835071622656193`*^9, 
+   3.983507370257197*^9}, {3.983507407842143*^9, 3.983507645450122*^9}, {
+   3.983507679442946*^9, 3.983507718371686*^9}, {3.983507805086516*^9, 
+   3.983507821164134*^9}, {3.9835081164735947`*^9, 3.983508165849084*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"36927994-58b7-458e-9f1b-8c33d17a2d76"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"nA", "=", 
+     RowBox[{"Quantity", "[", 
+      StyleBox[
+       RowBox[{
+        RowBox[{"6.02214199", "\[Times]", 
+         SuperscriptBox["10", "23"]}], ",", 
+        RowBox[{"1", "/", "\"\<Moles\>\""}]}], "MR"], 
+      StyleBox["]", "MR"]}]}], 
+    StyleBox[";", "MR"], 
+    RowBox[{"kB", "=", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"1.380649", " ", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "23"}]]}], ",", 
+       RowBox[{"\"\<Joules\>\"", "/", "\"\<Kelvins\>\""}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"TableForm", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\"\<Temperature \[Degree]C\>\"", 
+          ",", "\"\<\!\(\*SubscriptBox[\(T\), \(\[Degree]C\)]\) = T-273.15\
+\[NonBreakingSpace]K\>\"", ",", "\[IndentingNewLine]", 
+          RowBox[{"UnitConvert", "[", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"Quantity", "[", 
+             RowBox[{"T", ",", "\"\<Kelvins\>\""}], "]"}], 
+            ",", "\"\<DegreesCelsius\>\""}], "]"}]}], "}"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Volume\>\"", ",", "\"\<V = n\[Cross]R\[Cross]T/p\>\"", ",",
+           "\[IndentingNewLine]", 
+          RowBox[{"UnitConvert", "[", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Quantity", "[", 
+              RowBox[{"amt", ",", "\"\<Moles\>\""}], "]"}], " ", "nA", " ", 
+             "kB", " ", 
+             RowBox[{
+              RowBox[{"Quantity", "[", 
+               RowBox[{"T", ",", "\"\<Kelvins\>\""}], "]"}], "/", 
+              RowBox[{"Quantity", "[", 
+               RowBox[{"p", ",", "\"\<Millibars\>\""}], "]"}]}]}], ",", 
+            "\[IndentingNewLine]", "\"\<Liters\>\""}], "]"}]}], "}"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Particle distance \[LeftAngleBracket]\[CapitalDelta]s\
+\[RightAngleBracket]\>\"", 
+          ",", "\"\<\!\(\*RadicalBox[FractionBox[\(\*SubscriptBox[\(n\), \
+\(A\)]\\\ N\), \(V\)], \(3\)]\)\>\"", ",", "\[IndentingNewLine]", 
+          RowBox[{"UnitConvert", "[", 
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"(", 
+              FractionBox[
+               RowBox[{"kB", " ", 
+                RowBox[{"Quantity", "[", 
+                 RowBox[{"T", ",", "\"\<Kelvins\>\""}], "]"}]}], 
+               RowBox[{"Quantity", "[", 
+                RowBox[{"p", ",", "\"\<Millibars\>\""}], "]"}]], ")"}], 
+             RowBox[{"1", "/", "3"}]], ",", "\"\<Nanometers\>\""}], "]"}]}], 
+         "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Particle's kinetic energy\>\"", 
+          ",", "\"\<\!\(\*FractionBox[\(3\), \
+\(2\)]\)\!\(\*SubscriptBox[\(k\), \(B\)]\)T\>\"", ",", "\[IndentingNewLine]", 
+          
+          RowBox[{"UnitConvert", "[", 
+           RowBox[{
+            RowBox[{
+             FractionBox[
+              RowBox[{"3", " ", "kB"}], "2"], " ", 
+             RowBox[{"Quantity", "[", 
+              RowBox[{"T", ",", "\"\<Kelvins\>\""}], "]"}]}], 
+            ",", "\"\<Joules\>\""}], "]"}]}], "}"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Mean velocity\>\"", 
+          ",", "\"\<\!\(\*SqrtBox[FractionBox[\(8\\\ \*SubscriptBox[\(k\), \
+\(B\)] T\), \(\[Pi]\\\ m\)]]\)\>\"", ",", "\[IndentingNewLine]", 
+          RowBox[{"UnitConvert", "[", 
+           SqrtBox[
+            FractionBox[
+             RowBox[{"8", " ", "kB", " ", 
+              RowBox[{"Quantity", "[", 
+               RowBox[{"T", ",", "\"\<Kelvins\>\""}], "]"}]}], 
+             RowBox[{"\[Pi]", " ", "m"}]]], " ", "]"}]}], "}"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Mean collision frequency\>\"", 
+          ",", "\"\<\[LeftAngleBracket]v\[RightAngleBracket]/\
+\[LeftAngleBracket]\[CapitalDelta]s\[RightAngleBracket]\>\"", ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"UnitConvert", "[", 
+           RowBox[{"2", " ", 
+            SqrtBox[
+             FractionBox["2", "\[Pi]"]], " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              FractionBox[
+               RowBox[{"Quantity", "[", 
+                RowBox[{"p", ",", "\"\<Millibars\>\""}], "]"}], 
+               RowBox[{
+                RowBox[{"Quantity", "[", 
+                 RowBox[{"T", ",", "\"\<Kelvins\>\""}], "]"}], " ", "kB"}]], 
+              ")"}], 
+             RowBox[{"1", "/", "3"}]], " ", 
+            SqrtBox[
+             FractionBox[
+              RowBox[{
+               RowBox[{"Quantity", "[", 
+                RowBox[{"T", ",", "\"\<Kelvins\>\""}], "]"}], " ", "kB"}], 
+              "m"]]}], " ", "]"}]}], "}"}]}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"TableHeadings", "->", 
+       RowBox[{"{", 
+        RowBox[{"None", ",", 
+         RowBox[{"{", 
+          
+          RowBox[{"\"\<Parameter\>\"", ",", "\"\<Calculation\>\"", 
+           ",", "\"\<Value\>\""}], "}"}]}], "}"}]}]}], "\[IndentingNewLine]", 
+     "]"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", 
+       RowBox[{"ChemicalData", "[", 
+        RowBox[{
+         TemplateBox[{"\"helium\"", 
+           RowBox[{"Entity", "[", 
+             RowBox[{"\"Element\"", ",", "\"Helium\""}], "]"}], 
+           "\"Entity[\\\"Element\\\", \\\"Helium\\\"]\"", "\"element\""},
+          "Entity"], ",", "\"\<MolecularMass\>\""}], "]"}], 
+       ",", "\"\<Element\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"ChemicalData", "[", 
+         RowBox[{
+          TemplateBox[{"\"hydrogen\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Element\"", ",", "\"Hydrogen\""}], "]"}], 
+            "\"Entity[\\\"Element\\\", \\\"Hydrogen\\\"]\"", "\"element\""},
+           "Entity"], ",", "\"\<MolecularMass\>\""}], "]"}], 
+        "->", "\"\<\!\(\*SubscriptBox[\(H\), \(2\)]\)\>\""}], ",", 
+       RowBox[{
+        RowBox[{"ChemicalData", "[", 
+         RowBox[{
+          TemplateBox[{"\"helium\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Element\"", ",", "\"Helium\""}], "]"}], 
+            "\"Entity[\\\"Element\\\", \\\"Helium\\\"]\"", "\"element\""},
+           "Entity"], ",", "\"\<MolecularMass\>\""}], "]"}], 
+        "->", "\"\<He\>\""}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"ChemicalData", "[", 
+         RowBox[{
+          TemplateBox[{"\"nitrogen\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Element\"", ",", "\"Nitrogen\""}], "]"}], 
+            "\"Entity[\\\"Element\\\", \\\"Nitrogen\\\"]\"", "\"element\""},
+           "Entity"], ",", "\"\<MolecularMass\>\""}], "]"}], 
+        "->", "\"\<\!\(\*SubscriptBox[\(N\), \(2\)]\)\>\""}], ",", 
+       RowBox[{
+        RowBox[{"ChemicalData", "[", 
+         RowBox[{
+          TemplateBox[{"\"oxygen\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Element\"", ",", "\"Oxygen\""}], "]"}], 
+            "\"Entity[\\\"Element\\\", \\\"Oxygen\\\"]\"", "\"element\""},
+           "Entity"], ",", "\"\<MolecularMass\>\""}], "]"}], 
+        "->", "\"\<\!\(\*SubscriptBox[\(O\), \(2\)]\)\>\""}], ",", 
+       RowBox[{
+        RowBox[{"ChemicalData", "[", 
+         RowBox[{
+          TemplateBox[{"\"argon\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Element\"", ",", "\"Argon\""}], "]"}], 
+            "\"Entity[\\\"Element\\\", \\\"Argon\\\"]\"", "\"element\""},
+           "Entity"], ",", "\"\<MolecularMass\>\""}], "]"}], 
+        "->", "\"\<Ar\>\""}]}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "PopupMenu"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"amt", ",", "1.", ",", "\"\<Amount/moles\>\""}], "}"}], ",", 
+     "0.1", ",", "10", ",", 
+     RowBox[{"Appearance", "->", "\"\<Open\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"T", ",", "273.15", ",", "\"\<Temperature/K\>\""}], "}"}], ",", 
+     "50.", ",", "800.", ",", 
+     RowBox[{"Appearance", "->", "\"\<Open\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p", ",", "1013.", ",", "\"\<Pressure/mBar\>\""}], "}"}], ",", 
+     "100", ",", "10000", ",", 
+     RowBox[{"Appearance", "->", "\"\<Open\>\""}]}], "}"}]}], "]"}]], "Input",\
+
+ CellChangeTimes->{{3.9834303566732817`*^9, 3.9834303749965897`*^9}, {
+   3.983430496338282*^9, 3.9834308942382317`*^9}, {3.9834309839544992`*^9, 
+   3.983431036877061*^9}, {3.983431139379609*^9, 3.9834312796142063`*^9}, {
+   3.983431321612207*^9, 3.9834313234905863`*^9}, {3.983431368701641*^9, 
+   3.983431393971246*^9}, {3.983431431226968*^9, 3.983431458030445*^9}, {
+   3.983431529029942*^9, 3.983431592625347*^9}, {3.9834316860031977`*^9, 
+   3.983431818458605*^9}, {3.9834319066763077`*^9, 3.983431912690735*^9}, {
+   3.983432057900951*^9, 3.983432167627204*^9}, {3.98343220515867*^9, 
+   3.983432251018091*^9}, {3.9834324679838057`*^9, 3.98343246928296*^9}, {
+   3.98343250294631*^9, 3.983432595385111*^9}, {3.983432644727695*^9, 
+   3.983432673417198*^9}, {3.9834327316551857`*^9, 3.9834327622063427`*^9}, {
+   3.983432857358471*^9, 3.9834329542017736`*^9}, {3.983432989547483*^9, 
+   3.983433102285261*^9}, {3.983433147410276*^9, 3.983433258698534*^9}, {
+   3.98343334836132*^9, 3.983433457065433*^9}, {3.983433503236779*^9, 
+   3.98343357587844*^9}, {3.983433675878785*^9, 3.9834337157386847`*^9}, {
+   3.983434042744545*^9, 3.9834341046021976`*^9}, {3.9834341658869667`*^9, 
+   3.9834341672935257`*^9}, {3.983434226412818*^9, 3.983434245936204*^9}, {
+   3.9834342828105173`*^9, 3.983434287414501*^9}, {3.983434379767614*^9, 
+   3.983434397520932*^9}, {3.983434435882019*^9, 3.983434448471921*^9}, 
+   3.9834347450364847`*^9, {3.983434776548164*^9, 3.9834347786617117`*^9}, 
+   3.983434891317466*^9, {3.9834349278503428`*^9, 3.983434940603528*^9}, {
+   3.983434977760289*^9, 3.983435002337035*^9}, {3.983435041297367*^9, 
+   3.983435041704187*^9}, {3.9834350767857313`*^9, 3.9834350858361673`*^9}, {
+   3.983435189833726*^9, 3.983435209456102*^9}, {3.9834352532569113`*^9, 
+   3.983435254437488*^9}, {3.983496632135742*^9, 3.983496674268303*^9}, {
+   3.9835080360464153`*^9, 3.983508103090829*^9}, {3.983513230190228*^9, 
+   3.983513231586624*^9}, {3.98358369748346*^9, 3.983583699762521*^9}, 
+   3.984706729153734*^9, {3.984706795403976*^9, 3.984706795711896*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"3a63f37b-688d-472d-a52b-aa1e73568e4a"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`amt$$ = 1., $CellContext`m$$ = Quantity[
+    4.002602`7., "AtomicMassUnit"], $CellContext`p$$ = 
+    1013., $CellContext`T$$ = 300., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`m$$], 
+       Quantity[4.002602`7., "AtomicMassUnit"], "Element"}, {
+      Quantity[2.016`4., "AtomicMassUnit"] -> 
+       "\!\(\*SubscriptBox[\(H\), \(2\)]\)", 
+       Quantity[4.002602`7., "AtomicMassUnit"] -> "He", 
+       Quantity[28.014`5., "AtomicMassUnit"] -> 
+       "\!\(\*SubscriptBox[\(N\), \(2\)]\)", 
+       Quantity[31.998`5., "AtomicMassUnit"] -> 
+       "\!\(\*SubscriptBox[\(O\), \(2\)]\)", 
+       Quantity[39.948`5., "AtomicMassUnit"] -> "Ar"}, ControlType -> 
+      PopupMenu}, {{
+       Hold[$CellContext`amt$$], 1., "Amount/moles"}, 0.1, 10, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`T$$], 273.15, "Temperature/K"}, 50., 800., 
+      ControlType -> Manipulator}, {{
+       Hold[$CellContext`p$$], 1013., "Pressure/mBar"}, 100, 10000, 
+      ControlType -> Manipulator}}, Typeset`size$$ = {
+    548.0609099609375, {82.1809700636176, 87.9129036573676}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`amt$$ = 1., $CellContext`m$$ = 
+        Quantity[4.002602`7., "AtomicMassUnit"], $CellContext`p$$ = 
+        1013., $CellContext`T$$ = 273.15}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, 
+      "Body" :> ($CellContext`nA = 
+        Quantity[6.02214199 10^23, 1/"Moles"]; $CellContext`kB = 
+        Quantity[1.380649 10^(-23), "Joules"/"Kelvins"]; 
+       TableForm[{{
+          "Temperature \[Degree]C", 
+           "\!\(\*SubscriptBox[\(T\), \(\[Degree]C\)]\) = T-273.15\
+\[NonBreakingSpace]K", 
+           UnitConvert[
+            Quantity[$CellContext`T$$, "Kelvins"], "DegreesCelsius"]}, {
+          "Volume", "V = n\[Cross]R\[Cross]T/p", 
+           UnitConvert[
+           Quantity[$CellContext`amt$$, 
+              "Moles"] $CellContext`nA $CellContext`kB (
+             Quantity[$CellContext`T$$, "Kelvins"]/
+             Quantity[$CellContext`p$$, "Millibars"]), "Liters"]}, {
+          "Particle distance \[LeftAngleBracket]\[CapitalDelta]s\
+\[RightAngleBracket]", 
+           "\!\(\*RadicalBox[FractionBox[\(\*SubscriptBox[\(n\), \(A\)]\\ \
+N\), \(V\)], \(3\)]\)", 
+           
+           UnitConvert[($CellContext`kB (
+              Quantity[$CellContext`T$$, "Kelvins"]/
+              Quantity[$CellContext`p$$, "Millibars"]))^(1/3), 
+            "Nanometers"]}, {
+          "Particle's kinetic energy", 
+           "\!\(\*FractionBox[\(3\), \(2\)]\)\!\(\*SubscriptBox[\(k\), \(B\)]\
+\)T", 
+           
+           UnitConvert[(3 ($CellContext`kB/2)) 
+            Quantity[$CellContext`T$$, "Kelvins"], "Joules"]}, {
+          "Mean velocity", 
+           "\!\(\*SqrtBox[FractionBox[\(8\\ \*SubscriptBox[\(k\), \(B\)] T\), \
+\(\[Pi]\\ m\)]]\)", 
+           UnitConvert[
+            Sqrt[
+            8 $CellContext`kB (Quantity[$CellContext`T$$, "Kelvins"]/(
+              Pi $CellContext`m$$))]]}, {
+          "Mean collision frequency", 
+           "\[LeftAngleBracket]v\[RightAngleBracket]/\[LeftAngleBracket]\
+\[CapitalDelta]s\[RightAngleBracket]", 
+           UnitConvert[
+           2 Sqrt[2/Pi] (Quantity[$CellContext`p$$, "Millibars"]/(
+              Quantity[$CellContext`T$$, "Kelvins"] $CellContext`kB))^(1/3) 
+            Sqrt[Quantity[$CellContext`T$$, 
+                "Kelvins"] ($CellContext`kB/$CellContext`m$$)]]}}, 
+         TableHeadings -> {None, {"Parameter", "Calculation", "Value"}}]), 
+      "Specifications" :> {{{$CellContext`m$$, 
+          Quantity[4.002602`7., "AtomicMassUnit"], "Element"}, {
+         Quantity[2.016`4., "AtomicMassUnit"] -> 
+          "\!\(\*SubscriptBox[\(H\), \(2\)]\)", 
+          Quantity[4.002602`7., "AtomicMassUnit"] -> "He", 
+          Quantity[28.014`5., "AtomicMassUnit"] -> 
+          "\!\(\*SubscriptBox[\(N\), \(2\)]\)", 
+          Quantity[31.998`5., "AtomicMassUnit"] -> 
+          "\!\(\*SubscriptBox[\(O\), \(2\)]\)", 
+          Quantity[39.948`5., "AtomicMassUnit"] -> "Ar"}, ControlType -> 
+         PopupMenu}, {{$CellContext`amt$$, 1., "Amount/moles"}, 0.1, 10, 
+         Appearance -> "Open"}, {{$CellContext`T$$, 273.15, "Temperature/K"}, 
+         50., 800., Appearance -> 
+         "Open"}, {{$CellContext`p$$, 1013., "Pressure/mBar"}, 100, 10000, 
+         Appearance -> "Open"}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{
+      597.1609099609374, {215.48048727553166`, 221.21242086928166`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.98343467373311*^9, 3.9834347464110622`*^9, 3.9834347794131603`*^9, 
+   3.9834348927742767`*^9, 3.98343494156524*^9, {3.983434981314451*^9, 
+   3.983435003642083*^9}, 3.983435042497382*^9, {3.9834350781562243`*^9, 
+   3.983435089155592*^9}, {3.983435193258774*^9, 3.983435210071632*^9}, 
+   3.983435255624855*^9, 3.9834966755267982`*^9, {3.983508048732554*^9, 
+   3.9835081039099607`*^9}, 3.983508187351707*^9, 3.9835132326416407`*^9, {
+   3.983583673344977*^9, 3.983583700712709*^9}, 3.984706661156713*^9, 
+   3.984706732303679*^9, 3.984706796591382*^9},
+ CellLabel->"Out[10]=",ExpressionUUID->"85787f19-81b8-4319-8f8b-b961caeabc75"]
+}, Open  ]],
+
+Cell["\<\
+/Users/guenther_work/Lehre_TUM/VL-Biochem_Media/Thermodynamik/\
+MaxwellDistribution_20220121.nb \
+\>", "Text",
+ CellChangeTimes->{{3.977204638432577*^9, 3.9772046398837643`*^9}},
+ Background->RGBColor[
+  0.67, 0.54, 0.42, 
+   0.33],ExpressionUUID->"81d237a7-9392-41af-ac44-9d7706dcd610"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NotebookInformation", "[", "]"}]], "Input",
+ CellLabel->
+  "In[120]:=",ExpressionUUID->"b4020eb1-bd34-4231-9eb1-0bf9c069f463"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\<\"FileName\"\>", "\[Rule]", 
+    RowBox[{"FrontEnd`FileName", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "$RootDirectory", ",", "\<\"Users\"\>", ",", "\<\"guenther_work\"\>", 
+        ",", "\<\"Publication\"\>", 
+        ",", "\<\"MolecularMachines_Springer_2025\"\>", 
+        ",", "\<\"MathematicaCode\"\>"}], "}"}], 
+      ",", "\<\"MathCode_01_MaxwellDistribution.nb\"\>", ",", 
+      RowBox[{"CharacterEncoding", "\[Rule]", "\<\"UTF-8\"\>"}]}], "]"}]}], ",", 
+   RowBox[{"\<\"FileModificationTime\"\>", "\[Rule]", "3.983506865`*^9"}], ",", 
+   RowBox[{"\<\"WindowTitle\"\>", 
+    "\[Rule]", "\<\"MathCode_01_MaxwellDistribution.nb\"\>"}], ",", 
+   RowBox[{"\<\"MemoryModificationTime\"\>", "\[Rule]", 
+    "3.983506880096778`*^9"}], ",", 
+   RowBox[{"\<\"ModifiedInMemory\"\>", "\[Rule]", "True"}], ",", 
+   RowBox[{"\<\"StorageSystem\"\>", "\[Rule]", "\<\"Local\"\>"}], ",", 
+   RowBox[{"\<\"DocumentType\"\>", "\[Rule]", "\<\"Notebook\"\>"}], ",", 
+   RowBox[{"\<\"MIMEType\"\>", 
+    "\[Rule]", "\<\"application/vnd.wolfram.nb\"\>"}], ",", 
+   RowBox[{"\<\"StyleDefinitions\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     TemplateBox[<|
+      "obj" :> NotebookObject[
+        "788de132-9b65-4b1a-b2e9-ba25423e570a", 
+         "014f3268-a6d4-4c18-a417-026b3cb925a8"], "label" -> 
+       "\"788de132-9b65-4b1a-b2e9-ba25423e570a\""|>,
+      "NotebookObjectUUIDsMissing"], "}"}]}], ",", 
+   RowBox[{"\<\"ExpressionUUID\"\>", 
+    "\[Rule]", "\<\"f3d1bf1c-aa86-4a4d-bf66-174ce3c11426\"\>"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.970560033420377*^9, 3.9835068821646023`*^9},
+ CellLabel->
+  "Out[120]=",ExpressionUUID->"28ef7787-c32f-4700-b94f-30f7fc22188a"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{868, 896},
+WindowMargins->{{Automatic, 314}, {Automatic, 118}},
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f3d1bf1c-aa86-4a4d-bf66-174ce3c11426"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "calculator"->{
+  Cell[33474, 782, 212, 5, 53, InheritFromParent,ExpressionUUID->"d5afc14d-e374-486f-82b0-599ee34e7c16",
+   CellTags->"calculator"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"calculator", 58260, 1321}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 373, 6, 96, "Title",ExpressionUUID->"72ef5a31-f896-4184-b876-55274188a54b"],
+Cell[CellGroupData[{
+Cell[978, 32, 423, 6, 43, "Subsubsection",ExpressionUUID->"ae7319f8-3e83-40fe-a24d-d6f201b2b868"],
+Cell[CellGroupData[{
+Cell[1426, 42, 906, 17, 86, "Input",ExpressionUUID->"dae198e7-5812-4338-ba0f-f6f7537d82a7",
+ InitializationCell->True],
+Cell[2335, 61, 856, 16, 63, "Output",ExpressionUUID->"e105aff5-3e40-4e00-bd4d-a9fecb257d34"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3240, 83, 1011, 27, 103, "Section",ExpressionUUID->"38a6fa79-be14-4eb0-8e4a-520b8a00a2c2"],
+Cell[4254, 112, 560, 12, 49, "Text",ExpressionUUID->"b63ea2b3-3782-4641-b44e-240dd852b851"],
+Cell[CellGroupData[{
+Cell[4839, 128, 1743, 42, 147, "Input",ExpressionUUID->"afef2d2b-c42b-4ff6-8c78-8b22502dd670",
+ InitializationCell->True],
+Cell[6585, 172, 5271, 129, 162, "Output",ExpressionUUID->"c7e6ecc8-7579-4929-9422-6825edc76fec"]
+}, Open  ]],
+Cell[11871, 304, 3325, 84, 227, "Text",ExpressionUUID->"c34cf5d8-223c-4047-87c5-f812a9dcbe19"],
+Cell[15199, 390, 459, 13, 49, "Text",ExpressionUUID->"65f75b33-47d8-4881-b75f-1ba2aa9c2676"],
+Cell[CellGroupData[{
+Cell[15683, 407, 9799, 209, 563, "Input",ExpressionUUID->"9203b1ca-41f2-48e8-9a91-60c6ef65df24"],
+Cell[25485, 618, 6753, 132, 762, "Output",ExpressionUUID->"ef83525a-53bb-46f7-8366-b2a9ad28b76b"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32287, 756, 554, 8, 66, "Section",ExpressionUUID->"9d58d821-9b72-4d62-a2c8-172a6e6a9ce7"],
+Cell[32844, 766, 605, 12, 45, "Input",ExpressionUUID->"3e0c7172-4e13-42de-9b6b-dbd780c5f24f",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[33474, 782, 212, 5, 53, InheritFromParent,ExpressionUUID->"d5afc14d-e374-486f-82b0-599ee34e7c16",
+ CellTags->"calculator"],
+Cell[33689, 789, 4958, 94, 244, "Text",ExpressionUUID->"36927994-58b7-458e-9f1b-8c33d17a2d76"],
+Cell[CellGroupData[{
+Cell[38672, 887, 10720, 237, 877, "Input",ExpressionUUID->"3a63f37b-688d-472d-a52b-aa1e73568e4a"],
+Cell[49395, 1126, 6244, 122, 453, "Output",ExpressionUUID->"85787f19-81b8-4319-8f8b-b961caeabc75"]
+}, Open  ]],
+Cell[55654, 1251, 297, 7, 49, "Text",ExpressionUUID->"81d237a7-9392-41af-ac44-9d7706dcd610"],
+Cell[CellGroupData[{
+Cell[55976, 1262, 150, 3, 29, "Input",ExpressionUUID->"b4020eb1-bd34-4231-9eb1-0bf9c069f463"],
+Cell[56129, 1267, 1733, 37, 223, "Output",ExpressionUUID->"28ef7787-c32f-4700-b94f-30f7fc22188a"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

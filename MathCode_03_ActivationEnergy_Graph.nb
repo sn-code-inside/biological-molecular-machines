@@ -1,0 +1,419 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17582,        411]
+NotebookOptionsPosition[     16561,        385]
+NotebookOutlinePosition[     16955,        401]
+CellTagsIndexPosition[     16912,        398]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Activation enthalpy", "Title",
+ CellChangeTimes->{{3.5320874378106127`*^9, 3.532087448264648*^9}, {
+  3.9632862008297997`*^9, 3.9632862085041656`*^9}, {3.9632867270885773`*^9, 
+  3.963286730310021*^9}, {3.963454704006666*^9, 3.963454715193914*^9}, {
+  3.96354809215906*^9, 3.963548107280653*^9}, {3.977967044409122*^9, 
+  3.977967053639979*^9}, {3.977967642583947*^9, 
+  3.977967642882128*^9}},ExpressionUUID->"e20b4bf0-d11d-4ceb-bbb0-\
+7b13798373ff"],
+
+Cell["\<\
+Illustration of changes of the activation enthalpy under external load\
+\>", "Subtitle",
+ CellChangeTimes->{{3.532087454816058*^9, 3.532087489014696*^9}, {
+  3.9632862151376953`*^9, 3.963286233605056*^9}, {3.963548111367571*^9, 
+  3.963548171470661*^9}, {3.977967065953768*^9, 3.9779671063598003`*^9}, {
+  3.97796778051239*^9, 
+  3.977967781137623*^9}},ExpressionUUID->"700d4b91-a35c-47e0-b6bc-\
+9af660c76f8d"],
+
+Cell["G. Woehlke, 2016 - Aug. 2025", "Subsubsection",
+ CellChangeTimes->{{3.532087494272414*^9, 3.53208750220607*^9}, {
+  3.655090624215214*^9, 3.6550906269653788`*^9}, {3.718519755884433*^9, 
+  3.7185197618973627`*^9}, {3.748774125792227*^9, 3.74877413154329*^9}, {
+  3.963286238989945*^9, 3.963286245051206*^9}, {3.963548890829417*^9, 
+  3.963548893291098*^9}},ExpressionUUID->"4bfebb5d-af65-4688-be6c-\
+850c2303a6ab"],
+
+Cell[CellGroupData[{
+
+Cell["Description", "Section",
+ CellChangeTimes->{{3.532087507576138*^9, 3.532087511478887*^9}, {
+  3.963548853365807*^9, 3.9635488671710978`*^9}, {3.9779674652667522`*^9, 
+  3.977967466268059*^9}},ExpressionUUID->"4dcd0f0e-851a-498b-bf3d-\
+c886806ee7ac"],
+
+Cell[TextData[{
+ "The graph shows the smooth energy landscape of a reaction that proceeds via \
+an activation energy barrier in a characteristic distance \[Delta]. The \
+reaction is driven by a free enthalpy of ",
+ Cell[BoxData[
+  SubscriptBox["\:2206G", 
+   RowBox[{
+    RowBox[{"rct", "'"}], "n"}]]],
+  CellChangeTimes->{{3.68957130388973*^9, 3.689571695832718*^9}, {
+    3.689571730836892*^9, 3.6895717577117777`*^9}, 3.689571864962276*^9, {
+    3.689572156366914*^9, 3.689572191808923*^9}, {3.968219788578032*^9, 
+    3.968219794877046*^9}, 3.968219828692739*^9, {3.968219929560873*^9, 
+    3.968220089247827*^9}, {3.968220134869095*^9, 3.9682201691419287`*^9}, {
+    3.9682203090506783`*^9, 3.96822031315213*^9}, {3.9720184956155577`*^9, 
+    3.9720184992769327`*^9}, {3.972018768799502*^9, 3.972018816048214*^9}, {
+    3.9779671424205627`*^9, 3.977967149378894*^9}, {3.9779671905385027`*^9, 
+    3.9779672033093653`*^9}, {3.977967246237534*^9, 3.97796735053841*^9}, {
+    3.9779674140466843`*^9, 3.977967440557892*^9}},ExpressionUUID->
+  "91032fb4-d6da-428c-853e-9f7d4e568488"],
+ " , the activation enthalpy is ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["E", "a"], TraditionalForm]],ExpressionUUID->
+  "107b408e-09c0-49f8-b698-c17b49451ed1"],
+ ". External loads will shift the characteristic distance \[Delta], and/or \
+the width of the potential barrier. \nThe smooth potential surface is \
+described by ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"\[CapitalDelta]", 
+         StyleBox["G", "TI"], "\[LongEqual]", 
+         SuperscriptBox[
+          StyleBox["e", "TI"], 
+          RowBox[{"\[CapitalDelta]", 
+            SubscriptBox[
+             StyleBox["G", "TI"], 
+             RowBox[{
+               StyleBox["r", "TI"], 
+               StyleBox["c", "TI"], 
+               SuperscriptBox[
+                StyleBox["t", "TI"], "\[Prime]"], 
+               StyleBox["n", "TI"]}]], "\[CenterDot]", 
+            StyleBox["x", "TI"]}]], "+", 
+         SubscriptBox[
+          StyleBox["E", "TI"], 
+          StyleBox["a", "TI"]], "\[CenterDot]", 
+         SuperscriptBox[
+          StyleBox["e", "TI"], 
+          RowBox[{"-", 
+            StyleBox["w", "TI"], 
+            StyleBox["i", "TI"], 
+            StyleBox["d", "TI"], 
+            StyleBox["t", "TI"], 
+            StyleBox["h", "TI"], "\[CenterDot]", 
+            SuperscriptBox[
+             RowBox[{"(", 
+               RowBox[{
+                 StyleBox["x", "TI"], "-", "\[Delta]"}], ")"}], "2"]}]]}], 
+       TraditionalForm], "errors" -> {}, "input" -> 
+     "\\Delta{G} = e^{\\Delta{G_{rct'n}} \\cdot x} \n + E_a \\cdot e^{-width \
+\\cdot (x - \\delta)^2 }", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "dd1e135c-5717-49c1-9137-60b2e155c4bd"],
+ ". "
+}], "Text",
+ CellChangeTimes->{{3.5320872456243362`*^9, 3.532087385554812*^9}, {
+  3.963286256445466*^9, 3.963286334037071*^9}, {3.9632919300252867`*^9, 
+  3.9632919936168137`*^9}, {3.963454737392001*^9, 3.9634548265778503`*^9}, {
+  3.963454857535634*^9, 3.963454935475727*^9}, {3.9635482122465353`*^9, 
+  3.963548358922091*^9}, {3.9779674570887127`*^9, 3.977967656097727*^9}, {
+  3.977967689161593*^9, 3.977967776266357*^9}, {3.977967874107953*^9, 
+  3.977967901095296*^9}, {3.977968298188957*^9, 3.977968298478055*^9}},
+ FontSize->14,
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"8aecacbd-0e9b-4986-a23e-ea52633303b5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Plot", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"\[ExponentialE]", "^", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "deltaG"}], " ", "x"}], ")"}]}], "+", 
+      RowBox[{"Eactivation", " ", 
+       RowBox[{"\[ExponentialE]", "^", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "width"}], 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"x", "-", "dx"}], ")"}], "^", "2"}]}], ")"}]}]}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "2.5"}], "}"}], ",", "\[IndentingNewLine]", 
+     
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "0"}], ",", "Automatic"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "yRange"}], "}"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"GridLines", "\[Rule]", "grid"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"AxesLabel", "->", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<reaction coordinate\>\"", ",", 
+          RowBox[{"FontSize", "->", "ftsize"}]}], "]"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<\:2206G\>\"", ",", 
+          RowBox[{"FontSize", "->", "ftsize"}]}], "]"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"LabelStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Black", ",", "ftsize"}], "]"}]}], ",", 
+     RowBox[{"PlotStyle", "->", 
+      RowBox[{"{", 
+       RowBox[{"{", 
+        RowBox[{"color", ",", 
+         RowBox[{"Thickness", "[", "thn", "]"}]}], "}"}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ImageSize", "\[Rule]", "is"}]}], "\[IndentingNewLine]", "]"}], ",",
+    "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"color", ",", 
+     RowBox[{"{", 
+      RowBox[{"Blue", ",", "LightBlue", ",", 
+       RowBox[{"Darker", "[", "Green", "]"}], ",", "Red", ",", "Orange", ",", 
+       "Yellow", ",", 
+       RowBox[{"Darker", "[", "Gray", "]"}], ",", "White"}], "}"}]}], "}"}], ",",
+    "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"grid", ",", 
+     RowBox[{"{", 
+      RowBox[{"None", ",", "Automatic"}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"ftsize", ",", "18", ",", "\"\<font size\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "12", ",", "14", ",", "18", ",", "21", ",", "24", ",", "28", ",", 
+       "36"}], "}"}]}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"thn", ",", "0.004", ",", "\"\<line thickness\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "0.0025", ",", "0.004", ",", "0.0067", ",", "0.0075", ",", "0.01"}], 
+      "}"}]}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"is", ",", "720", ",", "\"\<image size\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "450", ",", "650", ",", "720", ",", "900", ",", "1050", ",", "1280", ",",
+        "1920"}], "}"}]}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "Eactivation", ",", "1", 
+       ",", "\"\<\!\(\*SubscriptBox[\(E\), \(a\)]\)\>\""}], "}"}], ",", ".0", 
+     ",", "5"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"dx", ",", "1", ",", "\"\<distance \[Delta]\>\""}], "}"}], ",", 
+     "0.5", ",", "2"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"width", ",", "5", ",", " ", "\"\<barrier width\>\""}], "}"}], ",",
+      "1", ",", "10"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "deltaG", ",", "1", 
+       ",", "\"\<\!\(\*SubscriptBox[\(\:2206G\), \(rct' n\)]\)\>\""}], "}"}], 
+     ",", ".0", ",", "5"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"yRange", ",", "1.5", ",", "\"\<range y-axis\>\""}], "}"}], ",",
+      ".5", ",", "5"}], "}"}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.68957130388973*^9, 3.689571695832718*^9}, {
+   3.689571730836892*^9, 3.6895717577117777`*^9}, 3.689571864962276*^9, {
+   3.689572156366914*^9, 3.689572191808923*^9}, {3.968219788578032*^9, 
+   3.968219794877046*^9}, 3.968219828692739*^9, {3.968219929560873*^9, 
+   3.968220089247827*^9}, {3.968220134869095*^9, 3.9682201691419287`*^9}, {
+   3.9682203090506783`*^9, 3.96822031315213*^9}, {3.9720184956155577`*^9, 
+   3.9720184992769327`*^9}, {3.972018768799502*^9, 3.972018816048214*^9}, {
+   3.9779671424205627`*^9, 3.977967149378894*^9}, {3.9779671905385027`*^9, 
+   3.9779672033093653`*^9}, {3.977967246237534*^9, 3.97796735053841*^9}, {
+   3.9779674140466843`*^9, 3.977967440557892*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"50a901f3-fc31-4af7-a11e-948bf17f165a"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`color$$ = RGBColor[
+    0, 0, 1], $CellContext`deltaG$$ = 1, $CellContext`dx$$ = 
+    1, $CellContext`Eactivation$$ = 1, $CellContext`ftsize$$ = 
+    18, $CellContext`grid$$ = None, $CellContext`is$$ = 
+    720, $CellContext`thn$$ = 0.004, $CellContext`width$$ = 
+    5, $CellContext`yRange$$ = 1.5, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`color$$], {
+       RGBColor[0, 0, 1], 
+       RGBColor[0.87, 0.94, 1], 
+       RGBColor[0, 
+        Rational[2, 3], 0], 
+       RGBColor[1, 0, 0], 
+       RGBColor[1, 0.5, 0], 
+       RGBColor[1, 1, 0], 
+       RGBColor[
+       0.33333333333333337`, 0.33333333333333337`, 0.33333333333333337`], 
+       GrayLevel[1]}, ControlType -> PopupMenu}, {
+      Hold[$CellContext`grid$$], {None, Automatic}, ControlType -> 
+      SetterBar}, {{
+       Hold[$CellContext`ftsize$$], 18, "font size"}, {12, 14, 18, 21, 24, 28,
+       36}, ControlType -> PopupMenu}, {{
+       Hold[$CellContext`thn$$], 0.004, "line thickness"}, {0.0025, 0.004, 
+      0.0067, 0.0075, 0.01}, ControlType -> SetterBar}, {{
+       Hold[$CellContext`is$$], 720, "image size"}, {450, 650, 720, 900, 1050,
+       1280, 1920}, ControlType -> PopupMenu}, {{
+       Hold[$CellContext`Eactivation$$], 1, 
+       "\!\(\*SubscriptBox[\(E\), \(a\)]\)"}, 0., 5, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`dx$$], 1, "distance \[Delta]"}, 0.5, 2, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`width$$], 5, "barrier width"}, 1, 10, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`deltaG$$], 1, 
+       "\!\(\*SubscriptBox[\(\:2206G\), \(rct' n\)]\)"}, 0., 5, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`yRange$$], 1.5, "range y-axis"}, 0.5, 5, ControlType -> 
+      Manipulator}}, Typeset`size$$ = {
+    720., {185.9855987440017, 191.7175323377517}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`color$$ = 
+        RGBColor[0, 0, 1], $CellContext`deltaG$$ = 1, $CellContext`dx$$ = 
+        1, $CellContext`Eactivation$$ = 1, $CellContext`ftsize$$ = 
+        18, $CellContext`grid$$ = None, $CellContext`is$$ = 
+        720, $CellContext`thn$$ = 0.004, $CellContext`width$$ = 
+        5, $CellContext`yRange$$ = 1.5}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> 
+      Plot[E^((-$CellContext`deltaG$$) $CellContext`x) + \
+$CellContext`Eactivation$$ 
+         E^((-$CellContext`width$$) ($CellContext`x - $CellContext`dx$$)^2), \
+{$CellContext`x, 0, 2.5}, 
+        PlotRange -> {{0, Automatic}, {0, $CellContext`yRange$$}}, 
+        GridLines -> $CellContext`grid$$, AxesLabel -> {
+          Style["reaction coordinate", FontSize -> $CellContext`ftsize$$], 
+          Style["\:2206G", FontSize -> $CellContext`ftsize$$]}, LabelStyle -> 
+        Directive[Black, $CellContext`ftsize$$], 
+        PlotStyle -> {{$CellContext`color$$, 
+           Thickness[$CellContext`thn$$]}}, ImageSize -> $CellContext`is$$], 
+      "Specifications" :> {{$CellContext`color$$, {
+          RGBColor[0, 0, 1], 
+          RGBColor[0.87, 0.94, 1], 
+          RGBColor[0, 
+           Rational[2, 3], 0], 
+          RGBColor[1, 0, 0], 
+          RGBColor[1, 0.5, 0], 
+          RGBColor[1, 1, 0], 
+          RGBColor[
+          0.33333333333333337`, 0.33333333333333337`, 0.33333333333333337`], 
+          GrayLevel[1]}}, {$CellContext`grid$$, {
+         None, Automatic}}, {{$CellContext`ftsize$$, 18, "font size"}, {12, 
+         14, 18, 21, 24, 28, 
+         36}}, {{$CellContext`thn$$, 0.004, "line thickness"}, {0.0025, 0.004,
+          0.0067, 0.0075, 0.01}}, {{$CellContext`is$$, 720, "image size"}, {
+         450, 650, 720, 900, 1050, 1280, 
+         1920}}, {{$CellContext`Eactivation$$, 1, 
+          "\!\(\*SubscriptBox[\(E\), \(a\)]\)"}, 0., 
+         5}, {{$CellContext`dx$$, 1, "distance \[Delta]"}, 0.5, 
+         2}, {{$CellContext`width$$, 5, "barrier width"}, 1, 
+         10}, {{$CellContext`deltaG$$, 1, 
+          "\!\(\*SubscriptBox[\(\:2206G\), \(rct' n\)]\)"}, 0., 
+         5}, {{$CellContext`yRange$$, 1.5, "range y-axis"}, 0.5, 5}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{
+      1065.4558789062498`, {216.75602415904078`, 222.48795775279078`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.968220314090036*^9, 3.968220377760645*^9}, 
+   3.9720185007021503`*^9, {3.972018785838888*^9, 3.9720188171124763`*^9}, {
+   3.972018877591033*^9, 3.972018886071603*^9}, 3.977967155110867*^9, {
+   3.9779671939663067`*^9, 3.9779672041014767`*^9}, {3.97796725599448*^9, 
+   3.977967321034821*^9}, 3.977967351310349*^9, {3.977967398450109*^9, 
+   3.9779674413567457`*^9}},
+ CellLabel->"Out[10]=",ExpressionUUID->"41fb7e4d-9107-4605-8756-764709d26312"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1254, 1147},
+WindowMargins->{{229, Automatic}, {Automatic, 6}},
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"568656c9-bf5e-439c-8640-1dec42766cc0"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 457, 7, 96, "Title",ExpressionUUID->"e20b4bf0-d11d-4ceb-bbb0-7b13798373ff"],
+Cell[1040, 31, 420, 8, 52, "Subtitle",ExpressionUUID->"700d4b91-a35c-47e0-b6bc-9af660c76f8d"],
+Cell[1463, 41, 420, 6, 43, "Subsubsection",ExpressionUUID->"4bfebb5d-af65-4688-be6c-850c2303a6ab"],
+Cell[CellGroupData[{
+Cell[1908, 51, 255, 4, 52, "Section",ExpressionUUID->"4dcd0f0e-851a-498b-bf3d-c886806ee7ac"],
+Cell[2166, 57, 3442, 75, 91, "Text",ExpressionUUID->"8aecacbd-0e9b-4986-a23e-ea52633303b5"],
+Cell[CellGroupData[{
+Cell[5633, 136, 5090, 129, 437, "Input",ExpressionUUID->"50a901f3-fc31-4af7-a11e-948bf17f165a"],
+Cell[10726, 267, 5795, 113, 456, "Output",ExpressionUUID->"41fb7e4d-9107-4605-8756-764709d26312"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

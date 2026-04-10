@@ -1,0 +1,552 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     22451,        544]
+NotebookOptionsPosition[     18004,        461]
+NotebookOutlinePosition[     18439,        478]
+CellTagsIndexPosition[     18396,        475]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Amount of ATP+ADP in human bodies", "Title",
+ CellChangeTimes->{{3.9651840394102993`*^9, 
+  3.9651840549299507`*^9}},ExpressionUUID->"3c14f1a3-fa98-4722-b2c6-\
+2134275e914f"],
+
+Cell["G. Woehlke ", "Subsubsection",
+ CellChangeTimes->{{3.7728756025833883`*^9, 3.772875610534574*^9}, {
+  3.84811820523032*^9, 3.848118216110503*^9}, {3.851485786676751*^9, 
+  3.8514858016373873`*^9}, {3.851760416661448*^9, 3.851760418243847*^9}, {
+  3.9705595840591097`*^9, 3.970559585099833*^9}, {3.9834296128426533`*^9, 
+  3.983429613528734*^9}, {3.984706882131888*^9, 
+  3.984706883572425*^9}},ExpressionUUID->"83eb5e02-0205-4c45-9eb9-\
+cc96e313842c"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Estimate of adenosine phosphoanhydride turnover in the human body\
+\>", "Section",
+ CellChangeTimes->{{3.772875577373657*^9, 3.772875596734243*^9}, {
+   3.8481176608665943`*^9, 3.8481176661686163`*^9}, {3.8514857238061333`*^9, 
+   3.851485783396737*^9}, {3.8517603686349697`*^9, 3.8517604126781197`*^9}, {
+   3.970560045211849*^9, 3.9705600746982727`*^9}, {3.970627994086536*^9, 
+   3.970628007047735*^9}, 3.983434598936058*^9, {3.983506240532899*^9, 
+   3.9835062412264*^9}, {3.9847069307262707`*^9, 
+   3.9847069786209173`*^9}},ExpressionUUID->"63bc2d06-329d-40af-b8ab-\
+451223971927"],
+
+Cell["Definition of constants:", "Text",
+ CellChangeTimes->{{3.768117634142901*^9, 3.768117652566938*^9}, {
+  3.768117684744864*^9, 3.768117713329013*^9}, {3.848120734170041*^9, 
+  3.848120765693286*^9}, {3.851485857366276*^9, 3.851485913456195*^9}, {
+  3.851760457933024*^9, 3.851760478190913*^9}, {3.97055959986981*^9, 
+  3.970559619420518*^9}, {3.983506263056158*^9, 3.983506264292078*^9}, {
+  3.984706915453932*^9, 3.984706923653227*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"20eeae61-d866-4351-83f2-c4422ba089a6"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["n", "A"], "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"6.02214129", " ", 
+      SuperscriptBox["10", "23"]}], ",", 
+     RowBox[{"1", "/", "\"\<Moles\>\""}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["k", "B"], "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"1.380649", " ", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "23"}]]}], ",", 
+     RowBox[{"\"\<Joules\>\"", "/", "\"\<Kelvins\>\""}]}], "]"}]}], 
+  ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6234795045085573`*^9, 3.623479509161252*^9}, {
+   3.62347959425813*^9, 3.6234796171280603`*^9}, {3.6234799554670877`*^9, 
+   3.623479969863387*^9}, {3.6234801443936043`*^9, 3.6234801563776217`*^9}, {
+   3.6234804488964167`*^9, 3.6234804564212313`*^9}, {3.6236744192984533`*^9, 
+   3.623674422352509*^9}, {3.821951308443836*^9, 3.821951336781722*^9}, {
+   3.96457604202831*^9, 3.964576049992907*^9}, 3.9645762335832357`*^9, {
+   3.964576301517138*^9, 3.964576327964161*^9}, {3.964592304482519*^9, 
+   3.9645923080368557`*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"72b454cc-30c5-4103-a017-eae4251d2868"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"mATP", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"507.18", ",", 
+     RowBox[{"\"\<Grams\>\"", "/", "\"\<Moles\>\""}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mADP", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"427.201", ",", 
+     RowBox[{"\"\<Grams\>\"", "/", "\"\<Moles\>\""}]}], "]"}]}], 
+  ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.964590125437336*^9, 3.964590144140358*^9}, {
+  3.9645903881317863`*^9, 3.964590390093453*^9}, {3.9847071090233088`*^9, 
+  3.984707110568095*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"0fe92fca-5068-460e-a5d5-a686b192fe59"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"deltaGsynth", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"50.", ",", 
+     RowBox[{"\"\<Kilojoules\>\"", "/", "\"\<Moles\>\""}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"deltaGhydrol", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"30.5", ",", 
+     RowBox[{"\"\<Kilojoules\>\"", "/", "\"\<Moles\>\""}]}], "]"}]}], 
+  ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.9645916791275597`*^9, 3.964591684071516*^9}, 
+   3.981706858806141*^9, {3.9847072347781897`*^9, 
+   3.984707235210054*^9}},ExpressionUUID->"05c87d3b-d8cc-4d76-8107-\
+10009e93a857"],
+
+Cell["\<\
+Concentration of ATP + ADP in erythrocytes has been reported: \
+\>", "Text",
+ CellChangeTimes->{{3.9645902167300386`*^9, 3.9645902312015247`*^9}, {
+  3.9717502208653097`*^9, 3.971750224197592*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"31d92edd-5696-4e6c-b4bd-87a80741a1a8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cATPerythrocytes", "=", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{"2.5", ",", 
+    RowBox[{"\"\<Millimoles\>\"", "/", "\"\<Liters\>\""}]}], "]"}]}]], "Input",\
+
+ InitializationCell->True,
+ CellChangeTimes->{{3.964589959807312*^9, 3.964589979988092*^9}, {
+  3.964590822414221*^9, 3.964590835610964*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"b30c6b47-5d57-42d2-9855-bfffac8d41c7"],
+
+Cell[BoxData[
+ TemplateBox[{"2.5`", 
+   RowBox[{
+    "\"mmol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", "\"L\""}], 
+   "millimoles per liter", 
+   FractionBox["\"Millimoles\"", "\"Liters\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{3.964589981847685*^9, 3.964590838331345*^9, 
+  3.971513781613471*^9, 3.9738434576291647`*^9, 3.977274086687339*^9, 
+  3.9817067955647497`*^9, 3.984706831292108*^9},
+ CellLabel->"Out[13]=",ExpressionUUID->"f155cf83-bdae-48cf-86e7-8fcffdd0e3fa"]
+}, Open  ]],
+
+Cell["Concentration of ATP + ADP in muscle has been reported: ", "Text",
+ CellChangeTimes->{{3.9645902167300386`*^9, 3.964590249855904*^9}, {
+  3.971750198596052*^9, 3.971750208901123*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"35701ee3-b543-41c9-8b9e-46a8187d1a1c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cATPmuscle", "=", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{"5.", ",", 
+    RowBox[{"\"\<Millimoles\>\"", "/", "\"\<Liters\>\""}]}], "]"}]}]], "Input",\
+
+ InitializationCell->True,
+ CellChangeTimes->{{3.964590257922089*^9, 3.964590264361745*^9}, {
+  3.964590842198057*^9, 3.964590847700601*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"c4652aee-2970-4d8f-bb1f-a6676002a783"],
+
+Cell[BoxData[
+ TemplateBox[{"5.`", 
+   RowBox[{
+    "\"mmol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", "\"L\""}], 
+   "millimoles per liter", 
+   FractionBox["\"Millimoles\"", "\"Liters\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.9645902593363028`*^9, 3.96459026495265*^9}, 
+   3.964590849043944*^9, 3.971513783779855*^9, 3.97384345916807*^9, 
+   3.977274109245842*^9, 3.9817067955693283`*^9, 3.9847068313069763`*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"06f85ea0-2997-4db8-8ccf-b1587f3bd85e"]
+}, Open  ]],
+
+Cell["\<\
+The concentration of ATP + ADP probably differs among different tissues but \
+we give the following estimates: \
+\>", "Text",
+ CellChangeTimes->{{3.9645902167300386`*^9, 3.9645903162727003`*^9}, {
+  3.971750236431176*^9, 3.971750239984119*^9}, {3.9847070243472357`*^9, 
+  3.9847070512803993`*^9}, {3.984707082149947*^9, 3.9847070837266827`*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"f220c17d-81a2-465c-ac6b-8e15c390abe7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bodyDensity", "=", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{"1.2", ",", 
+    RowBox[{"\"\<Grams\>\"", "/", "\"\<Milliliters\>\""}]}], "]"}]}]], "Input",\
+
+ InitializationCell->True,
+ CellChangeTimes->{{3.964590022284326*^9, 3.964590054565956*^9}},
+ CellLabel->"In[27]:=",ExpressionUUID->"93935c2d-3cbd-4d86-bc41-63e260f9d339"],
+
+Cell[BoxData[
+ TemplateBox[{"1.2`", 
+   RowBox[{
+    "\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", "\"mL\""}], 
+   "grams per milliliter", 
+   FractionBox["\"Grams\"", "\"Milliliters\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{3.9645900556574917`*^9, 3.971513785544908*^9, 
+  3.97175024819415*^9, 3.973843461417008*^9, 3.9772741113460703`*^9, 
+  3.981706795583231*^9, 3.984706831312401*^9, 3.984707054796022*^9, 
+  3.984707085555217*^9},
+ CellLabel->"Out[27]=",ExpressionUUID->"629b7ca2-ac93-44d2-a8d6-b337aa5233de"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bodyMass", "=", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{"72.", ",", "\"\<Kilograms\>\""}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.964589990076438*^9, 3.9645900160301733`*^9}, {
+  3.964590160923773*^9, 3.964590161600479*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"1cefb64d-bf4c-4fd3-96d7-d23d91bc17b5"],
+
+Cell[BoxData[
+ TemplateBox[{"72.`", "\"kg\"", "kilograms", "\"Kilograms\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.96459005718368*^9, 3.964590163787821*^9, 3.971513787380556*^9, 
+   3.971750252254074*^9, 3.9738434630359364`*^9, {3.977274113316634*^9, 
+   3.977274121967429*^9}, 3.9817067955858088`*^9, 3.984706831323414*^9, 
+   3.984707086765801*^9},
+ CellLabel->"Out[28]=",ExpressionUUID->"555ee129-76aa-4478-bf2b-4b0bfed32698"]
+}, Open  ]],
+
+Cell["Calculated:", "Text",
+ CellChangeTimes->{{3.9645902167300386`*^9, 3.964590249855904*^9}, {
+  3.96459033737182*^9, 3.964590339929262*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"6a9e802b-081b-4b03-acaf-d1b0f4304ab7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bodyVol", "=", 
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{
+    RowBox[{"bodyMass", "/", "bodyDensity"}], ",", "\"\<Liters\>\""}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.964590067338539*^9, 3.964590119578432*^9}, {
+  3.964590169489566*^9, 3.964590193091137*^9}},
+ CellLabel->"In[29]:=",ExpressionUUID->"b05cc94e-7a19-4f9a-9aec-966a19414d73"],
+
+Cell[BoxData[
+ TemplateBox[{"60.`", "\"L\"", "liters", "\"Liters\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.964590074556262*^9, 3.9645900831996393`*^9}, 
+   3.9645901201268063`*^9, {3.96459017190448*^9, 3.964590193809667*^9}, 
+   3.971513789377672*^9, 3.97175025587293*^9, 3.973843464621406*^9, 
+   3.9772741286950006`*^9, 3.981706802150938*^9, {3.98470706827312*^9, 
+   3.984707088675107*^9}},
+ CellLabel->"Out[29]=",ExpressionUUID->"beb82cca-18a4-4108-a21e-1e266d2e40c0"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Estimate: 20% ADP and 80% ATP have an average ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["m", "R"], TraditionalForm]],ExpressionUUID->
+  "376c0649-eddf-4a52-99fa-5554857c2d4c"],
+ " of 500 g/mol"
+}], "Text",
+ CellChangeTimes->{{3.9645902167300386`*^9, 3.964590249855904*^9}, {
+  3.964590354270307*^9, 3.964590355689432*^9}, {3.964590492250416*^9, 
+  3.964590520084715*^9}, {3.984707152167255*^9, 3.984707158140423*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"fbe307da-6ecd-4cc5-9bdd-8ada9b7f93db"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mMean", "=", 
+  FractionBox[
+   RowBox[{
+    RowBox[{"8", " ", "mATP"}], "+", 
+    RowBox[{"2", " ", "mADP"}]}], "10"]}]], "Input",
+ CellChangeTimes->{{3.964590436390266*^9, 3.964590457566597*^9}, {
+  3.964590562470038*^9, 3.964590567731927*^9}},
+ CellLabel->"In[34]:=",ExpressionUUID->"132ca75e-ab4d-4b24-ac4f-a6e1afbe80c9"],
+
+Cell[BoxData[
+ TemplateBox[{"491.1842000000001`", 
+   RowBox[{
+    "\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", "\"mol\""}], 
+   "grams per mole", 
+   FractionBox["\"Grams\"", "\"Moles\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{3.964590458402275*^9, 3.964590568602302*^9, 
+  3.971513796606595*^9, 3.9717502837959013`*^9, 3.97384346809023*^9, 
+  3.977274134616508*^9, 3.981706806394348*^9, 3.984707131174872*^9},
+ CellLabel->"Out[34]=",ExpressionUUID->"636da68f-7d30-4853-95f5-0eebefa7ae5c"]
+}, Open  ]],
+
+Cell["\<\
+The rough estimate for our body is thus, based on erythrocyte ATP+ADP \
+concentrations\
+\>", "Text",
+ CellChangeTimes->{{3.9645902167300386`*^9, 3.964590249855904*^9}, {
+  3.964590354270307*^9, 3.964590355689432*^9}, {3.964590492250416*^9, 
+  3.964590520084715*^9}, {3.964591207014378*^9, 3.964591241803993*^9}},
+ Background->RGBColor[
+  0.88, 1, 0.88],ExpressionUUID->"764fad49-745b-4a54-8117-e1a3f16b9a74"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cATPerythrocytes", " ", "mMean", " ", "bodyVol"}]], "Input",
+ CellChangeTimes->{{3.964590854387512*^9, 3.964590885078883*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"d0d82525-d802-4ae1-a6ac-628b8f63dc68"],
+
+Cell[BoxData[
+ TemplateBox[{"73.67763000000001`", "\"g\"", "grams", "\"Grams\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{3.964590885689007*^9, 3.971513798306303*^9, 
+  3.971750292497878*^9, 3.973843471314395*^9, 3.97727414039616*^9, 
+  3.981706809938624*^9},
+ CellLabel->"Out[13]=",ExpressionUUID->"3a5069e2-2cee-45dc-83b2-f752e3b99b3a"]
+}, Open  ]],
+
+Cell["...and based on muscle concentration:", "Text",
+ CellChangeTimes->{{3.9645902167300386`*^9, 3.964590249855904*^9}, {
+  3.964590354270307*^9, 3.964590355689432*^9}, {3.964590492250416*^9, 
+  3.964590520084715*^9}, {3.964591207014378*^9, 3.964591264861454*^9}},
+ Background->RGBColor[
+  0.88, 1, 0.88],ExpressionUUID->"4ed7739b-173f-41b3-ad7b-45b6227bd33d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cATPmuscle", " ", "mMean", " ", "bodyVol"}]], "Input",
+ CellChangeTimes->{{3.964590901301681*^9, 3.9645909030876617`*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"5268a0a0-94ed-4228-885a-7194d020f21a"],
+
+Cell[BoxData[
+ TemplateBox[{"147.35526000000002`", "\"g\"", "grams", "\"Grams\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{3.9645909036274347`*^9, 3.971513800453743*^9, 
+  3.971750312327566*^9, 3.973843473437368*^9, 3.977274142267932*^9, 
+  3.981706814733573*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"7f5fc893-ae56-4426-a6c5-741b13bd1ef0"]
+}, Open  ]],
+
+Cell["\<\
+Assuming that all non-water components of our body don\[CloseCurlyQuote]t \
+contain ATP/ADP, and that we consists of 2/3rd of water => we estimate a \
+total between 50 and 100\[NonBreakingSpace]g ATP in our bodies.\
+\>", "Text",
+ CellChangeTimes->{{3.9645902167300386`*^9, 3.964590249855904*^9}, {
+   3.964590354270307*^9, 3.964590355689432*^9}, {3.964590492250416*^9, 
+   3.964590520084715*^9}, {3.964591207014378*^9, 3.964591264861454*^9}, {
+   3.9717503621412354`*^9, 3.971750389621907*^9}, {3.971750432477809*^9, 
+   3.971750486355845*^9}, 3.9847071796362143`*^9},
+ Background->RGBColor[
+  0.88, 1, 0.88],ExpressionUUID->"0de97054-90b6-4aab-b9d9-a431b34c98f8"],
+
+Cell["\<\
+The synthesis of ATP requires under physiological conditions approximately 50 \
+kJ/mole, i.e. per molecule:\
+\>", "Text",
+ CellChangeTimes->{{3.9645902167300386`*^9, 3.964590249855904*^9}, {
+  3.964590354270307*^9, 3.964590355689432*^9}, {3.964590492250416*^9, 
+  3.964590520084715*^9}, {3.9645916967276917`*^9, 3.964591720557794*^9}, {
+  3.984707278196886*^9, 3.9847072837578573`*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"ff909022-30da-4beb-bdbb-2ff1b0d9eb60"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitConvert", "[", 
+  RowBox[{
+   FractionBox["deltaGhydrol", 
+    SubscriptBox["n", "A"]], ",", "\"\<Joules\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.964592332756267*^9, 3.964592376417721*^9}},
+ CellLabel->"In[35]:=",ExpressionUUID->"c21716aa-7744-4025-9c7a-d5fecbd103e2"],
+
+Cell[BoxData[
+ TemplateBox[{"5.0646437091481793`*^-20", "\"J\"", "joules", "\"Joules\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.964592341347252*^9, 3.9645923769556293`*^9}, 
+   3.971513808453496*^9, 3.9717505214527617`*^9, 3.973843478839683*^9, 
+   3.977274149297393*^9, 3.984707250304893*^9},
+ CellLabel->"Out[35]=",ExpressionUUID->"c7af0079-a42c-4a83-86ae-f59987472138"]
+}, Open  ]],
+
+Cell["\<\
+Based on ref. (1), the daily nutrition energy of 6,100 (\[Venus]\:fe0e) or \
+6,800 (\[Mars]\:fe0e)\[NonBreakingSpace]kJ/day requires a daily turnover of \
+60\[NonBreakingSpace]kg of ATP: \
+\>", "Text",
+ CellChangeTimes->{{3.964591350660942*^9, 3.964591389973628*^9}, {
+  3.964591438299749*^9, 3.964591588151208*^9}, {3.9645917764640007`*^9, 
+  3.964591782274181*^9}, {3.984707289216691*^9, 3.9847072900241623`*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"9d221d6b-1fa5-4a8a-8315-dbe4a65cb0d8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"mATP", " ", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"6100", ",", 
+     RowBox[{"\"\<Kilojoules\>\"", "/", "\"\<Days\>\""}]}], "]"}]}], 
+  "deltaGsynth"]], "Input",
+ CellChangeTimes->{{3.9645916204746428`*^9, 3.9645916617622538`*^9}, {
+  3.9645917272913218`*^9, 3.96459176991709*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"766e98d8-6083-4e24-8758-a0d50c378c47"],
+
+Cell[BoxData[
+ TemplateBox[{"61875.96`", 
+   RowBox[{
+    "\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", "\"day\""}], 
+   "grams per day", 
+   FractionBox["\"Grams\"", "\"Days\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.96459166245889*^9, {3.9645917287303867`*^9, 3.9645917711447*^9}, 
+   3.971513811131715*^9, 3.971750527411951*^9, 3.97384348169803*^9, 
+   3.977274151895441*^9, 3.984707267030991*^9, 3.984707297454702*^9},
+ CellLabel->"Out[37]=",ExpressionUUID->"3b392e6c-e956-446c-8589-e9150695dd4c"]
+}, Open  ]],
+
+Cell["\<\
+1. Roza, A. M. & Shizgal, H. M. The Harris Benedict equation reevaluated: \
+resting energy requirements and the body cell mass. Am J Clin Nutr 40, 168\
+\[Dash]182 (1984).
+2. /Users/guenther_work/Lehre_TUM/VL-Biochem_Media/Bioenergetics/BMI-Harris-\
+Benedict.nb\
+\>", "Text",
+ CellChangeTimes->{{3.964591404424192*^9, 3.964591434109168*^9}},
+ Background->RGBColor[
+  0.94, 0.91, 0.88],ExpressionUUID->"6fcfe08f-4179-4337-9a9a-8bf66a5ebc57"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{359, Automatic}, {Automatic, 37}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"1472e7e9-b845-4309-ad0c-3282bf3cc69e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 180, 3, 96, "Title",ExpressionUUID->"3c14f1a3-fa98-4722-b2c6-2134275e914f"],
+Cell[759, 27, 457, 7, 43, "Subsubsection",ExpressionUUID->"83eb5e02-0205-4c45-9eb9-cc96e313842c"],
+Cell[CellGroupData[{
+Cell[1241, 38, 597, 10, 89, "Section",ExpressionUUID->"63bc2d06-329d-40af-b8ab-451223971927"],
+Cell[1841, 50, 535, 8, 49, "Text",ExpressionUUID->"20eeae61-d866-4351-83f2-c4422ba089a6"],
+Cell[2379, 60, 1204, 28, 69, "Input",ExpressionUUID->"72b454cc-30c5-4103-a017-eae4251d2868",
+ InitializationCell->True],
+Cell[3586, 90, 653, 16, 65, "Input",ExpressionUUID->"0fe92fca-5068-460e-a5d5-a686b192fe59",
+ InitializationCell->True],
+Cell[4242, 108, 628, 16, 65, "Input",ExpressionUUID->"05c87d3b-d8cc-4d76-8107-10009e93a857",
+ InitializationCell->True],
+Cell[4873, 126, 300, 6, 49, "Text",ExpressionUUID->"31d92edd-5696-4e6c-b4bd-87a80741a1a8"],
+Cell[CellGroupData[{
+Cell[5198, 136, 403, 9, 45, "Input",ExpressionUUID->"b30c6b47-5d57-42d2-9855-bfffac8d41c7",
+ InitializationCell->True],
+Cell[5604, 147, 493, 10, 33, "Output",ExpressionUUID->"f155cf83-bdae-48cf-86e7-8fcffdd0e3fa"]
+}, Open  ]],
+Cell[6112, 160, 282, 4, 49, "Text",ExpressionUUID->"35701ee3-b543-41c9-8b9e-46a8187d1a1c"],
+Cell[CellGroupData[{
+Cell[6419, 168, 396, 9, 45, "Input",ExpressionUUID->"c4652aee-2970-4d8f-bb1f-a6676002a783",
+ InitializationCell->True],
+Cell[6818, 179, 518, 10, 33, "Output",ExpressionUUID->"06f85ea0-2997-4db8-8ccf-b1587f3bd85e"]
+}, Open  ]],
+Cell[7351, 192, 448, 8, 71, "Text",ExpressionUUID->"f220c17d-81a2-465c-ac6b-8e15c390abe7"],
+Cell[CellGroupData[{
+Cell[7824, 204, 349, 8, 45, "Input",ExpressionUUID->"93935c2d-3cbd-4d86-bc41-63e260f9d339",
+ InitializationCell->True],
+Cell[8176, 214, 537, 11, 35, "Output",ExpressionUUID->"629b7ca2-ac93-44d2-a8d6-b337aa5233de"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8750, 230, 356, 7, 45, "Input",ExpressionUUID->"1cefb64d-bf4c-4fd3-96d7-d23d91bc17b5",
+ InitializationCell->True],
+Cell[9109, 239, 441, 8, 35, "Output",ExpressionUUID->"555ee129-76aa-4478-bf2b-4b0bfed32698"]
+}, Open  ]],
+Cell[9565, 250, 236, 4, 49, "Text",ExpressionUUID->"6a9e802b-081b-4b03-acaf-d1b0f4304ab7"],
+Cell[CellGroupData[{
+Cell[9826, 258, 370, 8, 29, "Input",ExpressionUUID->"b05cc94e-7a19-4f9a-9aec-966a19414d73"],
+Cell[10199, 268, 483, 8, 33, "Output",ExpressionUUID->"beb82cca-18a4-4108-a21e-1e266d2e40c0"]
+}, Open  ]],
+Cell[10697, 279, 531, 12, 49, "Text",ExpressionUUID->"fbe307da-6ecd-4cc5-9bdd-8ada9b7f93db"],
+Cell[CellGroupData[{
+Cell[11253, 295, 349, 8, 43, "Input",ExpressionUUID->"132ca75e-ab4d-4b24-ac4f-a6e1afbe80c9"],
+Cell[11605, 305, 513, 10, 35, "Output",ExpressionUUID->"636da68f-7d30-4853-95f5-0eebefa7ae5c"]
+}, Open  ]],
+Cell[12133, 318, 418, 8, 49, "Text",ExpressionUUID->"764fad49-745b-4a54-8117-e1a3f16b9a74"],
+Cell[CellGroupData[{
+Cell[12576, 330, 229, 3, 29, "Input",ExpressionUUID->"d0d82525-d802-4ae1-a6ac-628b8f63dc68"],
+Cell[12808, 335, 343, 6, 35, "Output",ExpressionUUID->"3a5069e2-2cee-45dc-83b2-f752e3b99b3a"]
+}, Open  ]],
+Cell[13166, 344, 361, 5, 49, "Text",ExpressionUUID->"4ed7739b-173f-41b3-ad7b-45b6227bd33d"],
+Cell[CellGroupData[{
+Cell[13552, 353, 225, 3, 29, "Input",ExpressionUUID->"5268a0a0-94ed-4228-885a-7194d020f21a"],
+Cell[13780, 358, 347, 6, 35, "Output",ExpressionUUID->"7f5fc893-ae56-4426-a6c5-741b13bd1ef0"]
+}, Open  ]],
+Cell[14142, 367, 674, 11, 71, "Text",ExpressionUUID->"0de97054-90b6-4aab-b9d9-a431b34c98f8"],
+Cell[14819, 380, 489, 9, 49, "Text",ExpressionUUID->"ff909022-30da-4beb-bdbb-2ff1b0d9eb60"],
+Cell[CellGroupData[{
+Cell[15333, 393, 302, 6, 45, "Input",ExpressionUUID->"c21716aa-7744-4025-9c7a-d5fecbd103e2"],
+Cell[15638, 401, 382, 6, 35, "Output",ExpressionUUID->"c7af0079-a42c-4a83-86ae-f59987472138"]
+}, Open  ]],
+Cell[16035, 410, 518, 9, 73, "Text",ExpressionUUID->"9d221d6b-1fa5-4a8a-8315-dbe4a65cb0d8"],
+Cell[CellGroupData[{
+Cell[16578, 423, 403, 9, 46, "Input",ExpressionUUID->"766e98d8-6083-4e24-8758-a0d50c378c47"],
+Cell[16984, 434, 528, 11, 35, "Output",ExpressionUUID->"3b392e6c-e956-446c-8589-e9150695dd4c"]
+}, Open  ]],
+Cell[17527, 448, 449, 9, 93, "Text",ExpressionUUID->"6fcfe08f-4179-4337-9a9a-8bf66a5ebc57"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

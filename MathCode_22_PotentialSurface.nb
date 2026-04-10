@@ -1,0 +1,368 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     16242,        360]
+NotebookOptionsPosition[     15194,        332]
+NotebookOutlinePosition[     15586,        348]
+CellTagsIndexPosition[     15543,        345]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Potential surface (example)", "Title",
+ CellChangeTimes->{{3.972010760869228*^9, 
+  3.972010771153884*^9}},ExpressionUUID->"41e14648-2ec2-4144-910d-\
+51aeb52dcfb4"],
+
+Cell[CellGroupData[{
+
+Cell["Energy saddle", "Section",
+ CellChangeTimes->{{3.984727528536635*^9, 
+  3.984727532223979*^9}},ExpressionUUID->"34c7204e-1949-4960-9e36-\
+d11e8a541900"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", " ", "[", 
+  RowBox[{
+   RowBox[{"Plot3D", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", "y", " ", ")"}], "^", "2"}], "-", 
+      RowBox[{
+       RowBox[{"(", "x", ")"}], "^", "2"}]}], 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Sin", "[", 
+        RowBox[{"x", "+", "y"}], "]"}], "/", 
+       RowBox[{"Exp", "[", 
+        RowBox[{
+         RowBox[{"x", "^", "2"}], "+", 
+         RowBox[{"y", "^", "2"}]}], "]"}]}], "*)"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "4"}], ",", "4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "4"}], ",", "4"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "->", "Full"}], ",", 
+     RowBox[{"PlotLabel", "->", "\"\<Sample Potential Surface\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"LabelStyle", "->", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"fs", ",", " ", "Black"}], "]"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"AxesLabel", "->", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Position x\>\"", ",", "\"\<Chemical State\>\"", 
+        ",", "\"\<Potential\>\""}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"(*", 
+        RowBox[{"color", ","}], "*)"}], 
+       RowBox[{"Thickness", "[", "thn", "]"}], "}"}]}], ",", 
+     RowBox[{"ColorFunction", "->", "\"\<TemperatureMap\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"BoxRatios", "\[Rule]", "1"}], ",", " ", 
+     RowBox[{"ImageSize", "->", "is"}]}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"fs", ",", "21", ",", "\"\<font size\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"14", ",", "18", ",", "21", ",", "24", ",", "28"}], "}"}]}], 
+    "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"thn", ",", "0.005", ",", "\"\<line thickness\>\""}], "}"}], ",",
+      "0.001", ",", "0.025"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"is", ",", "720", ",", "\"\<image size\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"450", ",", "650", ",", "720", ",", "950", ",", "1080"}], 
+      "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.9720107335155497`*^9, {3.9720108061673822`*^9, 3.97201082872427*^9}, {
+   3.972010862566368*^9, 3.972010912760504*^9}, {3.972010958702095*^9, 
+   3.972010992095495*^9}, {3.972011151459502*^9, 3.972011165898633*^9}, {
+   3.9720112085028048`*^9, 3.972011302584282*^9}, {3.972011334422694*^9, 
+   3.972011423665778*^9}, {3.9720114540693083`*^9, 3.972011554922141*^9}, {
+   3.972011602086257*^9, 3.972011727628251*^9}, {3.972011795316197*^9, 
+   3.9720117961906137`*^9}, {3.972011851727003*^9, 3.9720118754051323`*^9}, {
+   3.97201193649411*^9, 3.972011989632031*^9}, {3.9720120267792873`*^9, 
+   3.9720123309147797`*^9}, {3.9720123631416397`*^9, 3.972012475417227*^9}, {
+   3.972012542979521*^9, 3.972012547045149*^9}},
+ CellLabel->"In[47]:=",ExpressionUUID->"0a2e1c2d-969c-4faa-990c-696acc7507b5"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`fs$$ = 21, $CellContext`is$$ = 
+    720, $CellContext`thn$$ = 0.005, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`fs$$], 21, "font size"}, {14, 18, 21, 24, 28}, 
+      ControlType -> SetterBar}, {{
+       Hold[$CellContext`thn$$], 0.005, "line thickness"}, 0.001, 0.025, 
+      ControlType -> Manipulator}, {{
+       Hold[$CellContext`is$$], 720, "image size"}, {450, 650, 720, 950, 
+      1080}, ControlType -> SetterBar}}, Typeset`size$$ = {
+    720., {380.2748293329607, 386.0067629267107}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`fs$$ = 21, $CellContext`is$$ = 
+        720, $CellContext`thn$$ = 0.005}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> 
+      Plot3D[$CellContext`y^2 - $CellContext`x^2, {$CellContext`x, -4, 
+         4}, {$CellContext`y, -4, 4}, PlotRange -> Full, PlotLabel -> 
+        "Sample Potential Surface", LabelStyle -> 
+        Directive[$CellContext`fs$$, Black], 
+        AxesLabel -> {"Position x", "Chemical State", "Potential"}, PlotStyle -> {
+          Thickness[$CellContext`thn$$]}, ColorFunction -> "TemperatureMap", 
+        BoxRatios -> 1, ImageSize -> $CellContext`is$$], 
+      "Specifications" :> {{{$CellContext`fs$$, 21, "font size"}, {14, 18, 21,
+          24, 28}}, {{$CellContext`thn$$, 0.005, "line thickness"}, 0.001, 
+         0.025}, {{$CellContext`is$$, 720, "image size"}, {450, 650, 720, 950,
+          1080}}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{
+      769.0999999999999, {458.14486412299976`, 463.87679771674976`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.972010714675631*^9, 3.9720107343849087`*^9}, 
+   3.972010821110032*^9, {3.972010965433922*^9, 3.972010992786111*^9}, {
+   3.972011160488821*^9, 3.9720111666834993`*^9}, 3.972011209802704*^9, 
+   3.972011303429756*^9, {3.9720113359122458`*^9, 3.97201137750788*^9}, {
+   3.972011417818304*^9, 3.972011424982677*^9}, {3.9720114599142227`*^9, 
+   3.972011528313263*^9}, {3.972011609518456*^9, 3.972011728448298*^9}, 
+   3.97201180391965*^9, {3.972011854911525*^9, 3.9720118760364943`*^9}, {
+   3.9720119403894043`*^9, 3.972011956621831*^9}, {3.972011990741023*^9, 
+   3.972012002831376*^9}, {3.972012069373567*^9, 3.972012196193884*^9}, {
+   3.972012240609828*^9, 3.9720122595704527`*^9}, {3.972012290020711*^9, 
+   3.972012332099943*^9}, 3.9720124082461853`*^9, {3.972012441393568*^9, 
+   3.9720124482166557`*^9}, 3.972012574194813*^9, 3.977898811627961*^9},
+ CellLabel->"Out[47]=",ExpressionUUID->"96d3ba09-450a-4691-a353-6836451fa3ff"]
+}, Open  ]],
+
+Cell["Wolfram reference Plot3D ", "Text",
+ CellChangeTimes->{{3.9720107831056957`*^9, 3.972010796140791*^9}},
+ Background->RGBColor[
+  0.94, 0.91, 0.88],ExpressionUUID->"c88c3073-6436-468a-b83e-13f3d70cc3e5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", " ", "[", 
+  RowBox[{
+   RowBox[{"Plot3D", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sin", "[", 
+       RowBox[{"x", "+", "y"}], "]"}], "+", 
+      RowBox[{"Cos", "[", "y", "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{
+        RowBox[{"-", "range"}], " ", "\[Pi]"}], ",", 
+       RowBox[{"range", " ", "\[Pi]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{
+        RowBox[{"-", "range"}], " ", "\[Pi]"}], ",", 
+       RowBox[{"range", " ", "\[Pi]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "->", "Full"}], ",", 
+     RowBox[{"PlotLabel", "->", "\"\<Hypothetical Potential Surface\>\""}], ",",
+      "\[IndentingNewLine]", 
+     RowBox[{"LabelStyle", "->", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"fs", ",", " ", "Black"}], "]"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"AxesLabel", "->", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Position x\>\"", ",", "\"\<Chemical State\>\"", 
+        ",", "\"\<Potential\>\""}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"(*", 
+        RowBox[{"color", ","}], "*)"}], 
+       RowBox[{"Thickness", "[", "thn", "]"}], "}"}]}], ",", 
+     RowBox[{"ColorFunction", "->", "\"\<TemperatureMap\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"BoxRatios", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "1", ",", ".5"}], "}"}]}], ",", " ", 
+     RowBox[{"ImageSize", "->", "is"}]}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"range", ",", "1.5", ",", "\"\<range\>\""}], "}"}], ",", "1", ",",
+      "4"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"fs", ",", "21", ",", "\"\<font size\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"14", ",", "18", ",", "21", ",", "24", ",", "28"}], "}"}]}], 
+    "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"thn", ",", "0.005", ",", "\"\<line thickness\>\""}], "}"}], ",",
+      "0.001", ",", "0.025"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"is", ",", "720", ",", "\"\<Image Size\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"450", ",", "650", ",", "720", ",", "900", ",", "1080"}], 
+      "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.9720107335155497`*^9, {3.9720108061673822`*^9, 3.97201082872427*^9}, {
+   3.972010862566368*^9, 3.972010912760504*^9}, {3.972010958702095*^9, 
+   3.972010992095495*^9}, {3.972011151459502*^9, 3.972011165898633*^9}, {
+   3.9720112085028048`*^9, 3.972011302584282*^9}, {3.972011334422694*^9, 
+   3.972011423665778*^9}, {3.9720114540693083`*^9, 3.972011554922141*^9}, {
+   3.972011602086257*^9, 3.972011727628251*^9}, {3.972011795316197*^9, 
+   3.9720117961906137`*^9}, {3.972011851727003*^9, 3.9720118754051323`*^9}, {
+   3.97201193649411*^9, 3.972011989632031*^9}, {3.9720120267792873`*^9, 
+   3.9720123309147797`*^9}, {3.9720123631416397`*^9, 3.972012475417227*^9}, {
+   3.972012542979521*^9, 3.972012547045149*^9}, {3.972012769761208*^9, 
+   3.972012900653493*^9}, {3.972012947861964*^9, 3.972012953661257*^9}, {
+   3.972012991874148*^9, 3.9720130601698303`*^9}, {3.9720132280192137`*^9, 
+   3.972013308376871*^9}, {3.972013366398303*^9, 3.972013368733678*^9}, {
+   3.972013468164464*^9, 3.972013480488079*^9}, {3.972013551527418*^9, 
+   3.97201355798287*^9}, {3.972013623113448*^9, 3.972013629640826*^9}},
+ CellLabel->"In[48]:=",ExpressionUUID->"ca2b01ab-64ba-47af-b5c7-fc0eeb09960e"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`fs$$ = 21, $CellContext`is$$ = 
+    720, $CellContext`range$$ = 1.5, $CellContext`thn$$ = 0.005, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`range$$], 1.5, "range"}, 1, 4, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`fs$$], 21, "font size"}, {14, 18, 21, 24, 28}, 
+      ControlType -> SetterBar}, {{
+       Hold[$CellContext`thn$$], 0.005, "line thickness"}, 0.001, 0.025, 
+      ControlType -> Manipulator}, {{
+       Hold[$CellContext`is$$], 720, "Image Size"}, {450, 650, 720, 900, 
+      1080}, ControlType -> SetterBar}}, Typeset`size$$ = {
+    720., {323.90907645781584`, 329.64101005156584`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`fs$$ = 21, $CellContext`is$$ = 
+        720, $CellContext`range$$ = 1.5, $CellContext`thn$$ = 0.005}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> 
+      Plot3D[Sin[$CellContext`x + $CellContext`y] + 
+        Cos[$CellContext`y], {$CellContext`x, (-$CellContext`range$$) 
+         Pi, $CellContext`range$$ 
+         Pi}, {$CellContext`y, (-$CellContext`range$$) 
+         Pi, $CellContext`range$$ Pi}, PlotRange -> Full, PlotLabel -> 
+        "Hypothetical Potential Surface", LabelStyle -> 
+        Directive[$CellContext`fs$$, Black], 
+        AxesLabel -> {"Position x", "Chemical State", "Potential"}, PlotStyle -> {
+          Thickness[$CellContext`thn$$]}, ColorFunction -> "TemperatureMap", 
+        BoxRatios -> {1, 1, 0.5}, ImageSize -> $CellContext`is$$], 
+      "Specifications" :> {{{$CellContext`range$$, 1.5, "range"}, 1, 
+         4}, {{$CellContext`fs$$, 21, "font size"}, {14, 18, 21, 24, 
+         28}}, {{$CellContext`thn$$, 0.005, "line thickness"}, 0.001, 
+         0.025}, {{$CellContext`is$$, 720, "Image Size"}, {450, 650, 720, 900,
+          1080}}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{
+      769.0999999999999, {416.57911124785494`, 422.31104484160494`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.972012781898538*^9, 3.972012901546397*^9}, 
+   3.972012954371584*^9, {3.972013004013207*^9, 3.972013074929708*^9}, {
+   3.97201328491928*^9, 3.972013309095639*^9}, 3.972013370414585*^9, {
+   3.972013457702388*^9, 3.972013481290862*^9}, {3.972013558645556*^9, 
+   3.972013587542345*^9}, 3.972013630202351*^9, 3.977898814920803*^9},
+ CellLabel->"Out[48]=",ExpressionUUID->"4fc615f3-7201-41c1-944d-c66f7726ee3c"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1336, 916},
+WindowMargins->{{77, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"560dfbc7-9d49-458c-87b4-d48e31f78883"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 170, 3, 96, "Title",ExpressionUUID->"41e14648-2ec2-4144-910d-51aeb52dcfb4"],
+Cell[CellGroupData[{
+Cell[771, 29, 158, 3, 66, "Section",ExpressionUUID->"34c7204e-1949-4960-9e36-d11e8a541900"],
+Cell[CellGroupData[{
+Cell[954, 36, 3151, 73, 192, "Input",ExpressionUUID->"0a2e1c2d-969c-4faa-990c-696acc7507b5"],
+Cell[4108, 111, 3635, 62, 939, "Output",ExpressionUUID->"96d3ba09-450a-4691-a353-6836451fa3ff"]
+}, Open  ]],
+Cell[7758, 176, 208, 3, 49, "Text",ExpressionUUID->"c88c3073-6436-468a-b83e-13f3d70cc3e5"],
+Cell[CellGroupData[{
+Cell[7991, 183, 3672, 80, 213, "Input",ExpressionUUID->"ca2b01ab-64ba-47af-b5c7-fc0eeb09960e"],
+Cell[11666, 265, 3488, 62, 855, "Output",ExpressionUUID->"4fc615f3-7201-41c1-944d-c66f7726ee3c"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
